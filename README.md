@@ -2,7 +2,7 @@
 Javascript Code Editor for Mobile
 
 ### Copyright Notice
-   Copyright [2018] [Damian Perera]
+   Copyright 2018 Damian Perera
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
