@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="-441" y="804"/>
         </scene>
-        <!--MainVC-->
+        <!--Home-->
         <scene sceneID="N5C-Ev-uvO">
             <objects>
-                <viewController id="3W9-vr-Piy" customClass="MainVC" customModule="foras" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="3W9-vr-Piy" customClass="MainVC" customModule="foras" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iyc-PT-jFc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,17 +166,10 @@
                                     <segue destination="5Za-gQ-r7r" kind="show" id="IzZ-fD-jkv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opx-ji-X0J">
-                                <rect key="frame" x="153" y="95" width="79" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OeO-6S-GTN">
+                    <navigationItem key="navigationItem" title="Home" id="OeO-6S-GTN">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="L5T-Yf-J7Q">
                             <connections>
                                 <action selector="onMenuTapped" destination="3W9-vr-Piy" id="7fo-q8-b7R"/>
@@ -193,22 +186,13 @@
             </objects>
             <point key="canvasLocation" x="1271" y="804"/>
         </scene>
-        <!--View Controller-->
+        <!--Host Settings-->
         <scene sceneID="21u-M9-22K">
             <objects>
-                <viewController id="ePL-go-gQw" sceneMemberID="viewController">
+                <viewController title="Host Settings" id="ePL-go-gQw" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dCH-NU-xQd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Host" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bh5-g6-2DU">
-                                <rect key="frame" x="169" y="137" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="csJ-Dt-eV2"/>
                     </view>
@@ -217,22 +201,13 @@
             </objects>
             <point key="canvasLocation" x="1044" y="1575"/>
         </scene>
-        <!--View Controller-->
+        <!--Editor Settings-->
         <scene sceneID="Lii-3E-geg">
             <objects>
-                <viewController id="DnA-cl-Det" sceneMemberID="viewController">
+                <viewController title="Editor Settings" id="DnA-cl-Det" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NIZ-KK-jLw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Editor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTQ-vd-ran">
-                                <rect key="frame" x="165" y="134" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qij-wg-g8X"/>
                     </view>
@@ -241,22 +216,13 @@
             </objects>
             <point key="canvasLocation" x="1732" y="1575"/>
         </scene>
-        <!--View Controller-->
+        <!--Network Settings-->
         <scene sceneID="UaM-MO-pjH">
             <objects>
-                <viewController id="FDr-By-t0H" sceneMemberID="viewController">
+                <viewController title="Network Settings" id="FDr-By-t0H" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="inh-cN-fEL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5l-fo-43n">
-                                <rect key="frame" x="155" y="128" width="65" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6GX-d6-UpW"/>
                     </view>
@@ -265,22 +231,13 @@
             </objects>
             <point key="canvasLocation" x="2422" y="1575"/>
         </scene>
-        <!--View Controller-->
+        <!--Editor-->
         <scene sceneID="nfH-G8-SRW">
             <objects>
-                <viewController id="5Za-gQ-r7r" sceneMemberID="viewController">
+                <viewController title="Editor" id="5Za-gQ-r7r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbv-hA-LAW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOJ-bb-GJ6">
-                                <rect key="frame" x="137" y="92" width="100" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UAc-h6-URa"/>
                     </view>
