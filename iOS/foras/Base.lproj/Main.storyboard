@@ -200,7 +200,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTX-ER-2kM">
                                 <rect key="frame" x="135" y="124" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Show other view"/>
+                                <state key="normal" title="Go to Editor"/>
                                 <connections>
                                     <segue destination="5Za-gQ-r7r" kind="show" id="IzZ-fD-jkv"/>
                                 </connections>
