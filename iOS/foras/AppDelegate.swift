@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Delays the launch screen for 2 seconds
-        sleep(2)
+        sleep(1)
         // Override point for customization after application launch.
         return true
     }

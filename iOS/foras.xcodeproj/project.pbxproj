@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3AAB1FD20341D9700751BFC /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAB1FC20341D9700751BFC /* SideMenuVC.swift */; };
+		B3AAB1FF203425A600751BFC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AAB1FE203425A600751BFC /* MainVC.swift */; };
 		B3EC38092033363400015081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC38082033363400015081 /* AppDelegate.swift */; };
-		B3EC380B2033363400015081 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC380A2033363400015081 /* ViewController.swift */; };
+		B3EC380B2033363400015081 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC380A2033363400015081 /* ContainerVC.swift */; };
 		B3EC380E2033363400015081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EC380C2033363400015081 /* Main.storyboard */; };
 		B3EC38112033363400015081 /* foras.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3EC380F2033363400015081 /* foras.xcdatamodeld */; };
 		B3EC38132033363400015081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3EC38122033363400015081 /* Assets.xcassets */; };
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3AAB1FC20341D9700751BFC /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		B3AAB1FE203425A600751BFC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		B3EC38052033363400015081 /* foras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3EC38082033363400015081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3EC380A2033363400015081 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B3EC380A2033363400015081 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		B3EC380D2033363400015081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3EC38102033363400015081 /* foras.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = foras.xcdatamodel; sourceTree = "<group>"; };
 		B3EC38122033363400015081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,7 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				B3EC38082033363400015081 /* AppDelegate.swift */,
-				B3EC380A2033363400015081 /* ViewController.swift */,
+				B3AAB1FC20341D9700751BFC /* SideMenuVC.swift */,
+				B3AAB1FE203425A600751BFC /* MainVC.swift */,
+				B3EC380A2033363400015081 /* ContainerVC.swift */,
 				B3EC380C2033363400015081 /* Main.storyboard */,
 				B3EC38122033363400015081 /* Assets.xcassets */,
 				B3EC38142033363400015081 /* LaunchScreen.storyboard */,
@@ -263,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3EC38112033363400015081 /* foras.xcdatamodeld in Sources */,
-				B3EC380B2033363400015081 /* ViewController.swift in Sources */,
+				B3AAB1FF203425A600751BFC /* MainVC.swift in Sources */,
+				B3EC380B2033363400015081 /* ContainerVC.swift in Sources */,
+				B3AAB1FD20341D9700751BFC /* SideMenuVC.swift in Sources */,
 				B3EC38092033363400015081 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
