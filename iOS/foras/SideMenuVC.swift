@@ -12,11 +12,13 @@ class SideMenuVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected: ", indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
         NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
         switch indexPath.row {
-        case 0: NotificationCenter.default.post(name: NSNotification.Name("ShowHostSettings"), object: nil)
-        case 1: NotificationCenter.default.post(name: NSNotification.Name("ShowEditorSettings"), object: nil)
-        case 2: NotificationCenter.default.post(name: NSNotification.Name("ShowNetworkSettings"), object: nil)
+        case 0: break
+        case 1: NotificationCenter.default.post(name: NSNotification.Name("ShowHostSettings"), object: nil)
+        case 2: NotificationCenter.default.post(name: NSNotification.Name("ShowEditorSettings"), object: nil)
+        case 3: NotificationCenter.default.post(name: NSNotification.Name("ShowNetworkSettings"), object: nil)
         default: break
         }
     }
