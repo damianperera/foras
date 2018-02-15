@@ -207,9 +207,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ETB-C7-HCs"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="OeO-6S-GTN">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="L5T-Yf-J7Q">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="Hamburger" style="plain" id="L5T-Yf-J7Q">
                             <connections>
                                 <action selector="onMenuTapped" destination="3W9-vr-Piy" id="7fo-q8-b7R"/>
                             </connections>
@@ -304,4 +305,7 @@
             <point key="canvasLocation" x="512" y="803.29835082458771"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Hamburger" width="25" height="25"/>
+    </resources>
 </document>
