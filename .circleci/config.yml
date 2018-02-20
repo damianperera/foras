@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Deploying Changes
           command: |
-                  scp -r ~/foras/daemon/* circleci@server.perera.io:foras/
+                  scp -r daemon/* circleci@server.perera.io:foras/
       - run:
           name: Restarting Server
           command: |
