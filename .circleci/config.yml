@@ -16,8 +16,8 @@ jobs:
       - run:
           name: Deploying Changes
           command: |
-                  scp -r * circleci@server.perera.io:foras/
+                  scp -r ~/foras/daemon/* circleci@server.perera.io:foras/
       - run:
           name: Restarting Server
           command: |
-                  ssh circleci@server.perera.io "cd ~/foras; npm i; gulp build; pm2 stop all; pm2 start --name='foras' index.js"
+                  ssh circleci@server.perera.io "cd ~/foras; npm i; pm2 stop all; pm2 start --name='foras' index.js"
