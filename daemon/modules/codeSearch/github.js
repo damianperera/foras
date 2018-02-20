@@ -20,39 +20,53 @@
  */
 const
     request = require('request'),
+    userAgent = 'foras',
     apiUrl = config.modules.codeSearch.url,
     apiToken = config.modules.codeSearch.token;
 let
-    resultJSON = {};
+    resultJSON = [];
 
 function search(term, language, callback) {
+    resultJSON = [];
     request({
-        url: apiUrl,
-        method: 'GET',
-        qs: {
-            q: term,
-            in: 'file',
-            language: language,
-            fork: true
-        },
-        headers: {
-            'Authorization': 'token ' + apiToken,
-            'User-Agent': 'foras'
-        }
+        url: apiUrl, method: 'GET',
+        qs: {q: term, in: 'file', language: language, fork: true, archived: true},
+        headers: {'Authorization': 'token ' + apiToken, 'User-Agent': userAgent}
     }, function (err, res, body) {
         if (!err)
-            getRawText(JSON.parse(body).items, callback);
+            getRawText(term, language, JSON.parse(body).items, callback);
         else
-            callback(err);
+            console.log(err);
     });
 }
 
-function getRawText(items, callback) {
-    callback(items);
+function getRawText(term, language, items, callback) {
+    items.forEach(function (item, index) {
+        item.html_url = item.html_url.replace('github.com', 'raw.githubusercontent.com');
+        item.html_url = item.html_url.replace('/blob', '');
+        request({
+            url: item.html_url,
+            headers: {'User-Agent': userAgent}
+        }, function (err, res, body) {
+            if (!err)
+                buildJSON(term, language, item.score, item.repository.owner.login, body, index, items, callback);
+            else {
+                console.log(err);
+            }
+        });
+    });
 }
 
-function buildJSON(term, language, score, author, result) {
-
+function buildJSON(term, language, score, author, result, index, array, callback) {
+    resultJSON.push({
+        searchTerm: term,
+        originLanguage: language,
+        similarityScore: score,
+        codeAuthor: author,
+        codeSnippet: JSON.stringify(result)
+    });
+    if (resultJSON.length === array.length)
+        callback(resultJSON);
 }
 
 function addToNeuralNet() {
