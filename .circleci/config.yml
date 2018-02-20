@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:6.12
+    working_directory: ~/foras/daemon
+    branches:
+      only:
+        - master
+    steps:
+      - checkout
+      - run:
+          name: Fix host authenticity for build server
+          command: |
+                  ssh-keyscan server.perera.io >> ~/.ssh/known_hosts
+      - run:
+          name: Deploying Changes
+          command: |
+                  scp -r * circleci@server.perera.io:foras/
+      - run:
+          name: Restarting Server
+          command: |
+                  ssh circleci@server.perera.io "cd ~/foras; npm i; gulp build; pm2 stop all; pm2 start --name='foras' index.js"
