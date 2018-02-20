@@ -63,7 +63,7 @@ function buildJSON(term, language, score, author, result, index, array, callback
         originLanguage: language,
         similarityScore: score,
         codeAuthor: author,
-        codeSnippet: JSON.stringify(result)
+        codeSnippet: result
     });
     if (resultJSON.length === array.length)
         callback(resultJSON);
