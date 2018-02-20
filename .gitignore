@@ -70,5 +70,3 @@ fastlane/screenshots
 fastlane/test_output
 .idea/
 iOS/foras.xcodeproj/xshareddata/
-package-lock.json
-package.json
