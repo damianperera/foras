@@ -1,0 +1,36 @@
+{
+  "name": "foras-daemon",
+  "version": "0.1.0",
+  "description": "Foras Server Daemon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/damianperera/foras.git"
+  },
+  "keywords": [
+    "foras",
+    "server",
+    "daemon"
+  ],
+  "author": "Damian Perera <damian@perera.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/damianperera/foras/issues"
+  },
+  "homepage": "https://github.com/damianperera/foras#readme",
+  "dependencies": {
+    "basic-auth": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "helmet": "^3.11.0",
+    "intercept-stdout": "^0.1.2",
+    "json-routing": "^0.1.4",
+    "morgan": "^1.9.0",
+    "request": "^2.83.0",
+    "webworker-threads": "^0.7.13"
+  }
+}
