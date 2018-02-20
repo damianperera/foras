@@ -1,0 +1,11 @@
+{
+  "/search/code/:language/:term": {
+    "GET": {
+      "route": "moduleController:getSearchCode",
+      "policy": [
+        "firewall:checkSearchParams"
+      ],
+      "cors": true
+    }
+  }
+}
