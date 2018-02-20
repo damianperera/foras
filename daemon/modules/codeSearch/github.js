@@ -18,20 +18,40 @@
  * Created by Damian Perera on 2/20/2018
  *
  */
-
-let resultJSON = {};
+const
+    request = require('request'),
+    apiUrl = config.modules.codeSearch.url,
+    apiToken = config.modules.codeSearch.token;
+let
+    resultJSON = {};
 
 function search(term, language, callback) {
-    let token = config.tokens.github;
-    console.log(term, language);
-    callback('done');
+    request({
+        url: apiUrl,
+        method: 'GET',
+        qs: {
+            q: term,
+            in: 'file',
+            language: language,
+            fork: true
+        },
+        headers: {
+            'Authorization': 'token ' + apiToken,
+            'User-Agent': 'foras'
+        }
+    }, function (err, res, body) {
+        if (!err)
+            getRawText(JSON.parse(body).items, callback);
+        else
+            callback(err);
+    });
 }
 
-function getText(gitURL) {
-
+function getRawText(items, callback) {
+    callback(items);
 }
 
-function addToJSON(term, language, result) {
+function buildJSON(term, language, score, author, result) {
 
 }
 

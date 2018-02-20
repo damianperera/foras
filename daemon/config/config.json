@@ -1,7 +1,10 @@
 {
   "port": 3000,
-  "tokens": {
-    "github": "bcbc49d53c30f6f5738f648d34c5874fde52df5c"
+  "modules": {
+    "codeSearch": {
+      "url": "https://api.github.com/search/code",
+      "token": "bcbc49d53c30f6f5738f648d34c5874fde52df5c"
+    }
   },
   "routes": {
     "routesPath": "./api/routes",
