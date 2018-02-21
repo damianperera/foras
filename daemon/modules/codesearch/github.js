@@ -20,14 +20,20 @@
  */
 const
     request = require('request'),
-    userAgent = 'foras',
+    userAgent = 'foras/modules/codesearch',
     apiUrl = config.modules.codeSearch.url,
     apiToken = config.modules.codeSearch.token;
 let
-    resultJSON = [];
+    resultJSON = {};
 
 function search(term, language, callback) {
-    resultJSON = [];
+    resultJSON = {
+        searchTerm: term,
+        searchLanguage: language,
+        generatedBy: userAgent,
+        generatedOn: new Date().toJSON(),
+        searchResults: []
+    };
     request({
         url: apiUrl, method: 'GET',
         qs: {q: term, in: 'file', language: language, fork: true, archived: true},
@@ -58,14 +64,12 @@ function getRawText(term, language, items, callback) {
 }
 
 function buildJSON(term, language, score, author, result, index, array, callback) {
-    resultJSON.push({
-        searchTerm: term,
-        originLanguage: language,
+    resultJSON.searchResults.push({
         similarityScore: score,
         codeAuthor: author,
         codeSnippet: result
     });
-    if (resultJSON.length === array.length)
+    if (resultJSON.searchResults.length === array.length)
         callback(resultJSON);
 }
 

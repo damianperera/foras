@@ -19,7 +19,7 @@
  *
  */
 
-const moduleCodeSearch = require('../../modules/codeSearch/exports');
+const moduleCodeSearch = require('../../modules/codesearch/exports');
 
 function getSearchCode(req, res) {
     moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
