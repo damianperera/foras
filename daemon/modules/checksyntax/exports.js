@@ -14,27 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * moduleController.js in foras
- * Created by Damian Perera on 2/20/2018
+ * exports.js in foras
+ * Created by Damian Perera on 2/26/2018
  *
  */
 
-const moduleCodeSearch = require('../../modules/codesearch/exports');
-const moduleCheckSyntax = require('../../modules/checksyntax/exports');
-
-function getSearchCode(req, res) {
-    moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
-        res.send(result);
-    });
-}
-
-function getCheckSyntax(req, res) {
-    moduleCheckSyntax.check(req.body.code, req.body.filename, function (result) {
-        res.send(result);
-    })
-}
+const syntax = require('./syntax');
 
 module.exports = {
-    getSearchCode: getSearchCode,
-    postCheckSyntax: getCheckSyntax
+    check: syntax.check
 };

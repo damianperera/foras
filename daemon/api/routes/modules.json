@@ -7,5 +7,11 @@
       ],
       "cors": true
     }
+  },
+  "/syntax/check": {
+    "POST": {
+      "route": "moduleController:postCheckSyntax",
+      "cors": true
+    }
   }
 }
