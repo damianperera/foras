@@ -20,7 +20,7 @@
  */
 
 const moduleCodeSearch = require('../../modules/codesearch/exports');
-const moduleCheckSyntax = require('../../modules/checksyntax/exports');
+const moduleSyntax = require('../../modules/checksyntax/exports');
 
 function getSearchCode(req, res) {
     moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
@@ -28,13 +28,20 @@ function getSearchCode(req, res) {
     });
 }
 
-function getCheckSyntax(req, res) {
-    moduleCheckSyntax.check(req.body.code, req.body.filename, function (result) {
+function postCheckSyntax(req, res) {
+    moduleSyntax.check(req.body.code, req.body.filename, function (result) {
+        res.send(result);
+    })
+}
+
+function postLintSyntax(req, res) {
+    moduleSyntax.lint(req.body.code, req.body.filename, req.body.fix, function (result) {
         res.send(result);
     })
 }
 
 module.exports = {
     getSearchCode: getSearchCode,
-    postCheckSyntax: getCheckSyntax
+    postCheckSyntax: postCheckSyntax,
+    postLintSyntax: postLintSyntax
 };

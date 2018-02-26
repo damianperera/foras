@@ -20,6 +20,7 @@
  */
 
 const jsChecker = require('syntax-error');
+const jsStandard = require('standard');
 
 function check(code, fileName, callback) {
     let result = jsChecker(code, fileName);
@@ -39,6 +40,21 @@ function check(code, fileName, callback) {
         });
 }
 
+function lint(code, filename, fix, callback) {
+    let result = jsStandard.lintTextSync(code, [{
+        filename: filename,
+        fix: fix
+    }]);
+    let lintedResult = {
+        'lintedBy': 'foras/modules/checksyntax',
+        'lintedOn': new Date().toJSON()
+    };
+    for (let key in result)
+        lintedResult[key] = result[key];
+    callback(lintedResult);
+}
+
 module.exports = {
-    check: check
+    check: check,
+    lint: lint
 };

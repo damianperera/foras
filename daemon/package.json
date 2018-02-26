@@ -31,6 +31,7 @@
     "json-routing": "^0.1.4",
     "morgan": "^1.9.0",
     "request": "^2.83.0",
+    "standard": "^11.0.0",
     "syntax-error": "^1.4.0",
     "webworker-threads": "^0.7.13"
   }

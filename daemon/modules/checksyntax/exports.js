@@ -22,5 +22,6 @@
 const syntax = require('./syntax');
 
 module.exports = {
-    check: syntax.check
+    check: syntax.check,
+    lint: syntax.lint
 };
