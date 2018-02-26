@@ -20,7 +20,7 @@
  */
 
 const jsChecker = require('syntax-error');
-const jsStandard = require('standard');
+const jsLinter = require('standard');
 
 function check(code, fileName, callback) {
     let result = jsChecker(code, fileName);
@@ -41,7 +41,7 @@ function check(code, fileName, callback) {
 }
 
 function lint(code, filename, fix, callback) {
-    let result = jsStandard.lintTextSync(code, [{
+    let result = jsLinter.lintTextSync(code, [{
         filename: filename,
         fix: fix
     }]);
