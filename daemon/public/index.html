@@ -118,7 +118,7 @@
             min-height: 90px;
             background: #fff;
             width: 100%;
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
             border-radius: 2px;
             margin-bottom: 15px;
         }
@@ -172,7 +172,8 @@
 
         #info-boxes {
             min-height: 250px;
-            margin-right: -10px;
+            margin-right: auto;
+            margin-left: auto;
         }
 
         .under-construction {
@@ -180,10 +181,13 @@
             font-size: 12px;
             text-transform: uppercase;
         }
-
         .card {
             width: 100%;
             margin-bottom: 2%;
+        }
+        pre {
+            width: 100% !important;
+            height: 400px !important;
         }
     </style>
 </head>
@@ -334,13 +338,30 @@
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
+        </div>
     </div>
-</div>
     <div class="row">
         <div class="card">
             <div class="card-body">
                 <b>Test Cloud Modules</b>
             </div>
+        </div>
+    </div>
+    <div class="row" id="demo">
+        <div class="col">
+            asd
+        </div>
+        <div class="col">
+            <pre class="prettyprint code-output">
+              &lt;script&gt;
+                $(document).ready(function(){
+                  setTimeout(function(){
+                    console.log('deleting cookie');
+                    $.cookie('cookie',null,{domain: document.domain});
+                  },1000);
+                });
+              &lt;/script&gt;
+            </pre>
         </div>
     </div>
 </div>
@@ -427,5 +448,6 @@
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 </html>
