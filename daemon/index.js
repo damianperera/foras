@@ -23,18 +23,13 @@ global.config = require('./config/config');
 
 const
     express = require('express'),
-    http = require('http'),
     app = express(),
     jsonRoutes = require('json-routing'),
     bodyParser = require('body-parser'),
     intercept = require("intercept-stdout"),
     morgan = require('morgan'),
-    fs = require('fs'),
-    path = require('path'),
     os = require('os'),
-    helmet = require('helmet'),
-    cookieParser = require('cookie-parser'),
-    basicAuth = require('basic-auth');
+    helmet = require('helmet');
 
 let port = process.env.PORT || config.port;
 
@@ -61,6 +56,11 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Content-Type");
     next();
 });
+
+/**
+ * Serving Frontend
+ */
+app.use("/", express.static(__dirname + '/public'));
 
 /**
  * Execute routing
