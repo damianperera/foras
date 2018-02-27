@@ -207,6 +207,10 @@
             outline: none !important;
             box-shadow: none;
         }
+        #spinner {
+            left: 20%;
+            margin-top: 10%;
+        }
     </style>
 </head>
 <body>
@@ -383,8 +387,11 @@
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-file-code"></i></button>
             </div>
         </div>
-        <div class="col-sm-5">
-            <pre class="code-output"><code class="prettyprint">{{result | json}}</code></pre>
+        <div id="spinner" class="col-sm-5" ng-if="spinner == true">
+            <i class="fas fa-spinner fa-spin fa-w-16 fa-3x"></i>
+        </div>
+        <div class="col-sm-5" ng-if="spinner == false">
+            <pre class="code-output prettyprint"><code>{{result | json}}</code></pre>
         </div>
     </div>
 </div>
@@ -471,28 +478,32 @@
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script>
     let app = angular.module("foras-demo", []);
     app.controller("modules", function($scope, $http, $httpParamSerializerJQLike) {
         $scope.jsCode = "";
-        $scope.result = "Result";
+        $scope.result = "Processed Result";
+        $scope.spinner = false;
         $scope.codeSuggester = function () {
-            if($scope.jsCode !== "")
+            if($scope.jsCode !== "") {
+                $scope.spinner = true;
                 $http({
                     method : "GET",
                     url : "/search/code/js/" + $scope.jsCode
                 }).then(
                     function success(response) {
-                        console.log(response);
+                        $scope.spinner = false;
                         $scope.result = response.data;
-                }, function error(response) {
+                    }, function error(response) {
                         $scope.result = response.statusText;
-                });
+                    });
+            }
+
         };
         $scope.syntaxChecker = function () {
-            if($scope.jsCode !== "")
+            if($scope.jsCode !== "") {
+                $scope.spinner = true;
                 $http({
                     method : "POST",
                     url : "/syntax/check",
@@ -505,13 +516,16 @@
                     })
                 }).then(
                     function success(response) {
+                        $scope.spinner = false;
                         $scope.result = response.data;
                     }, function error(response) {
                         $scope.result = response.statusText;
                     });
+            }
         };
         $scope.codeLinter = function () {
-            if($scope.jsCode !== "")
+            if($scope.jsCode !== ""){
+                $scope.spinner = true;
                 $http({
                     method : "POST",
                     url : "/syntax/lint",
@@ -525,13 +539,17 @@
                     })
                 }).then(
                     function success(response) {
+                        $scope.spinner = false;
                         $scope.result = response.data;
                     }, function error(response) {
                         $scope.result = response.statusText;
                     });
+            }
+
         };
         $scope.autoCorrector = function () {
-            if($scope.jsCode !== "")
+            if($scope.jsCode !== "") {
+                $scope.spinner = true;
                 $http({
                     method : "POST",
                     url : "/syntax/lint",
@@ -545,12 +563,15 @@
                     })
                 }).then(
                     function success(response) {
+                        $scope.spinner = false;
                         $scope.result = response.data;
                     }, function error(response) {
                         $scope.result = response.statusText;
                     });
+            }
         };
     });
 </script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 </html>
