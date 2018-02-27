@@ -46,7 +46,7 @@ function lint(code, filename, fix, callback) {
         fix: fix
     }]);
     let lintedResult = {
-        'lintedBy': 'foras/modules/checksyntax',
+        'lintedBy': 'foras/modules/lintsyntax',
         'lintedOn': new Date().toJSON()
     };
     for (let key in result)

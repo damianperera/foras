@@ -364,7 +364,7 @@
     <div class="row" id="demo" ng-controller="modules">
         <div class="col-sm-5">
             <div class="js-input">
-                <textarea class="form-control" rows="3" placeholder="JavaScript Code"></textarea>
+                <textarea ng-model="jsCode" class="form-control" rows="3" placeholder="JavaScript Code"></textarea>
             </div>
         </div>
         <div class="col-sm-1" id="module-buttons">
@@ -380,7 +380,7 @@
             </div>
         </div>
         <div class="col-sm-5">
-            <pre class="prettyprint code-output"></pre>
+            <pre class="code-output"><code class="prettyprint">{{result | json}}</code></pre>
         </div>
     </div>
 </div>
@@ -471,18 +471,80 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script>
     let app = angular.module("foras-demo", []);
-    app.controller("modules", function($scope) {
+    app.controller("modules", function($scope, $http, $httpParamSerializerJQLike) {
+        $scope.jsCode = "";
+        $scope.result = "Result";
         $scope.codeSuggester = function () {
-            console.log('codeSuggester')
+            if($scope.jsCode !== "")
+                $http({
+                    method : "GET",
+                    url : "/search/code/js/" + $scope.jsCode
+                }).then(
+                    function success(response) {
+                        console.log(response);
+                        $scope.result = response.data;
+                }, function error(response) {
+                        $scope.result = response.statusText;
+                });
         };
         $scope.syntaxChecker = function () {
-            console.log('syntaxChecker')
+            if($scope.jsCode !== "")
+                $http({
+                    method : "POST",
+                    url : "/syntax/check",
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: $httpParamSerializerJQLike({
+                        code: $scope.jsCode,
+                        filename: 'demo.js'
+                    })
+                }).then(
+                    function success(response) {
+                        $scope.result = response.data;
+                    }, function error(response) {
+                        $scope.result = response.statusText;
+                    });
         };
         $scope.codeLinter = function () {
-            console.log('codeLinter')
+            if($scope.jsCode !== "")
+                $http({
+                    method : "POST",
+                    url : "/syntax/lint",
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: $httpParamSerializerJQLike({
+                        code: $scope.jsCode,
+                        filename: 'demo.js',
+                        fix: false
+                    })
+                }).then(
+                    function success(response) {
+                        $scope.result = response.data;
+                    }, function error(response) {
+                        $scope.result = response.statusText;
+                    });
         };
         $scope.autoCorrector = function () {
-            console.log('autoCorrector')
+            if($scope.jsCode !== "")
+                $http({
+                    method : "POST",
+                    url : "/syntax/lint",
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: $httpParamSerializerJQLike({
+                        code: $scope.jsCode,
+                        filename: 'demo.js',
+                        fix: true
+                    })
+                }).then(
+                    function success(response) {
+                        $scope.result = response.data;
+                    }, function error(response) {
+                        $scope.result = response.statusText;
+                    });
         };
     });
 </script>
