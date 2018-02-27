@@ -26,6 +26,7 @@
     <title>Foras - Monitoring Dashboard</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png"><!-- Major Browsers -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
     <style type="text/css">
         @media (min-width: 576px) {
             nav {
@@ -87,7 +88,7 @@
             float: right;
             height: 2vh;
             color: #ffffff;
-            font-size: 2vh;
+            font-size: 1.5vh;
             font-family: sans-serif;
             line-height: 2.4vh;
             display: flex;
@@ -110,6 +111,79 @@
         }
         .tick {
             line-height: 2vh;
+        }
+
+        .info-box {
+            display: block;
+            min-height: 90px;
+            background: #fff;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            margin-bottom: 15px;
+        }
+
+        .bg-green {
+            background-color: limegreen !important;
+        }
+
+        .bg-red {
+            background-color: indianred !important;
+        }
+
+        .bg-red, .bg-green {
+            color: #fff !important;
+        }
+
+        .info-box-icon {
+            border-radius: 2px 0 0 2px;
+            display: block;
+            float: left;
+            height: 90px;
+            width: 90px;
+            text-align: center;
+            font-size: 45px;
+            line-height: 90px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .info-box-content {
+            padding: 5px 10px;
+            margin-left: 90px;
+        }
+
+        .info-box-text {
+            text-transform: uppercase;
+        }
+
+        .info-box-text {
+            display: block;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .info-box-number {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #info-boxes {
+            min-height: 250px;
+            margin-right: -10px;
+        }
+
+        .under-construction {
+            color: red;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .card {
+            width: 100%;
+            margin-bottom: 2%;
         }
     </style>
 </head>
@@ -151,83 +225,128 @@
 </nav>
 <div class="container">
     <div class="row">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non metus eros. Aliquam erat volutpat. Curabitur sit
-        amet facilisis urna, vel fermentum sem. Vivamus porttitor mi id sem porttitor, eget posuere nulla dictum.
-        Curabitur lobortis felis nec pharetra ornare. In porttitor leo a lectus elementum, in elementum erat vestibulum.
-        Proin vel odio sit amet ex varius posuere in in ipsum. Curabitur nulla ligula, fringilla eu orci non, convallis
-        sagittis ante. Duis eu mi ac turpis convallis aliquet. Etiam quis enim tincidunt magna semper consectetur id vel
-        sapien.
+        <div class="row" id="info-boxes">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fab fa-searchengin"></i></span>
 
-        Maecenas pharetra magna egestas, interdum nibh ut, tincidunt nunc. Duis facilisis eu massa in tristique.
-        Phasellus in facilisis tellus, ut posuere leo. Nam consectetur fringilla tortor id blandit. Vivamus tempor
-        mauris erat, eget egestas libero feugiat in. Nam egestas ex nec purus congue tempus. Vestibulum eget porta
-        augue, a scelerisque purus. Nulla rutrum erat sit amet accumsan efficitur. Phasellus sodales mattis lacinia.
-        Nunc dignissim augue ac nulla euismod mattis vulputate quis odio. Phasellus porta feugiat orci eu varius. Fusce
-        aliquam tellus ut laoreet pretium. Donec sit amet molestie leo. Donec elit erat, sollicitudin eu tempor eu,
-        gravida a ante. In feugiat eros ac sodales mollis. Quisque a facilisis nunc.
+                    <div class="info-box-content">
+                        <span class="info-box-text">Code Search</span>
+                        <span class="info-box-number">ACTIVE</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fas fa-language"></i></span>
 
-        Curabitur lobortis tortor elit, vel sagittis purus tincidunt sed. Suspendisse pretium tempor lectus, a viverra
-        enim finibus eget. Quisque purus arcu, viverra sit amet libero sit amet, interdum euismod purus. Maecenas nec
-        dolor massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam
-        a magna eget lectus finibus sollicitudin. Cras fringilla nisi vitae leo finibus, eu consequat est rutrum. Cras
-        in lobortis ante.
+                    <div class="info-box-content">
+                        <span class="info-box-text">Syntax Checker</span>
+                        <span class="info-box-number">ACTIVE</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
 
-        Phasellus id hendrerit velit, ut dapibus dui. Curabitur ullamcorper enim nec velit ullamcorper congue. Nam felis
-        tellus, aliquam eu nibh suscipit, rhoncus tincidunt magna. Pellentesque auctor massa eget purus vestibulum, ac
-        vestibulum nisi condimentum. Nullam molestie neque a dignissim luctus. Morbi sed maximus ipsum, sed porttitor
-        sapien. Nulla tristique diam dignissim sapien scelerisque luctus.
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
 
-        Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin velit velit, imperdiet quis risus non,
-        cursus feugiat justo. Quisque eu libero sem. Curabitur tempor, metus ac elementum hendrerit, risus arcu
-        tincidunt tortor, id cursus felis eros vel urna. Maecenas eget orci quis lacus viverra feugiat in at lorem.
-        Aliquam vulputate quam sed libero ornare, non elementum justo vestibulum. Nulla sem velit, pellentesque eget
-        neque vel, cursus porttitor ipsum. Suspendisse suscipit, erat finibus blandit maximus, ex mi volutpat lorem,
-        pellentesque vestibulum dui dolor sed quam. Sed pretium justo eu mauris interdum aliquet eget eget purus. Nulla
-        tempus volutpat sem, sit amet pellentesque tellus imperdiet vel. Integer nec felis massa. Aliquam erat volutpat.
-        Ut eu iaculis massa.
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fas fa-linter"></i></span>
 
-        Sed vel arcu at lorem feugiat bibendum ut nec odio. Praesent maximus turpis euismod magna pharetra tempor.
-        Maecenas gravida, odio in ullamcorper semper, quam velit pharetra orci, sit amet rutrum purus nulla ac justo.
-        Aenean mattis lacus nec lectus tincidunt, sed ultrices lectus blandit. Pellentesque iaculis viverra metus vel
-        tempus. Cras in sollicitudin magna, vitae viverra augue. Nunc ipsum massa, rhoncus nec eleifend id, elementum
-        non nibh. Aliquam viverra urna enim, eget cursus risus sollicitudin sit amet. Pellentesque vel diam eu tellus
-        efficitur mollis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                    <div class="info-box-content">
+                        <span class="info-box-text">Code Linter</span>
+                        <span class="info-box-number">ACTIVE</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fas fa-magic"></i></span>
 
-        Phasellus vel commodo nunc. In vel facilisis massa. Aliquam erat volutpat. Quisque dapibus bibendum felis ut
-        tempus. Aenean eget lacus leo. Proin vestibulum, tellus vitae vestibulum sodales, arcu erat ultrices tellus,
-        eget iaculis dolor velit id quam. Vivamus ac odio ligula. Pellentesque pharetra ante quam, a sollicitudin dolor
-        egestas et. Donec imperdiet rhoncus ipsum at porttitor. Nam commodo massa libero, eget interdum tellus congue
-        at. Fusce ullamcorper ante eu dictum suscipit.
+                    <div class="info-box-content">
+                        <span class="info-box-text">Auto Corrector</span>
+                        <span class="info-box-number">ACTIVE</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-terminal"></i></span>
 
-        Sed pulvinar commodo pellentesque. Suspendisse pretium tortor eget nisi commodo, in commodo neque ultricies.
-        Nulla eu accumsan justo, eget viverra sem. Morbi commodo arcu erat, sit amet laoreet sapien iaculis dapibus.
-        Pellentesque id mollis felis. In scelerisque aliquet convallis. Morbi pellentesque a nisi id consectetur. Fusce
-        lobortis nunc non magna dapibus lacinia. Mauris mattis rhoncus ipsum, quis auctor neque mattis at. Pellentesque
-        dapibus magna ut consectetur consequat. In malesuada tincidunt risus, non ornare purus sagittis sit amet. Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam eros nulla, in iaculis nunc pellentesque a.
+                    <div class="info-box-content">
+                        <span class="info-box-text">Remote Terminal</span>
+                        <span class="info-box-number under-construction">Under Construction</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-code-branch"></i></span>
 
-        Proin egestas magna justo, scelerisque varius orci sagittis placerat. Etiam sodales lectus nisl, et porttitor mi
-        tempor in. Integer ornare, arcu vitae porta porttitor, dui nulla eleifend risus, in porttitor lectus neque vel
-        justo. Etiam faucibus auctor dui nec convallis. Praesent dapibus euismod hendrerit. Aliquam tristique mauris ac
-        libero lacinia vulputate lobortis et ante. Duis at lectus ut nisl ultricies feugiat ultrices ut purus. Class
-        aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer molestie lacus a
-        turpis consectetur, quis facilisis odio bibendum. Duis pulvinar ligula vitae massa vestibulum mollis. Aliquam
-        quis ligula ultrices, aliquet orci in, pulvinar dui. Quisque congue mi magna, ut dictum leo euismod sit amet.
+                    <div class="info-box-content">
+                        <span class="info-box-text">Code Deploy</span>
+                        <span class="info-box-number under-construction">Under Construction</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-exclamation"></i></span>
 
-        Phasellus euismod dapibus ipsum, eget suscipit nunc condimentum sed. Sed commodo molestie velit, a consectetur
-        odio mollis ut. Sed tellus risus, fermentum ut sapien vel, laoreet lobortis elit. Fusce vel sapien vel nisl
-        ultrices laoreet lacinia vel nunc. In tincidunt, eros ac posuere ullamcorper, tellus est tristique nunc,
-        pharetra convallis eros augue at lectus. Aenean id tincidunt metus, et dictum enim. Maecenas posuere, nunc sed
-        pharetra eleifend, augue turpis imperdiet tortor, vel consectetur nisl lacus non nibh. Nam nec nisl quis erat
-        convallis vestibulum nec nec tortor. Etiam a orci quis lorem molestie pharetra. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum finibus nibh erat, nec scelerisque dui
-        finibus et. Pellentesque ac dapibus tortor. Etiam lacinia ornare tellus, sit amet mattis ligula interdum ut.
-        Donec tincidunt tempus lorem. Mauris iaculis diam sit amet suscipit consequat. Nulla lacus dolor, porta nec
-        molestie id, feugiat ut turpis.
+                    <div class="info-box-content">
+                        <span class="info-box-text">Error Monitor</span>
+                        <span class="info-box-number under-construction">Under Construction</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-file-code"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Remote Logger</span>
+                        <span class="info-box-number under-construction">Under Construction</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+    </div>
+</div>
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <b>Test Cloud Modules</b>
+            </div>
+        </div>
     </div>
 </div>
 <nav id="footer" class="navbar fixed-bottom navbar-dark bg-dark">
-    <p class="mb-0">&copy; 2018 Damian Perera | Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache
+    <p class="mb-0">&copy; 2018 Damian Perera | Licensed under the <a target="_blank"
+                                                                      href="http://www.apache.org/licenses/LICENSE-2.0">Apache
         License 2.0</a></p>
 </nav>
 <script>
@@ -307,5 +426,6 @@
     setInterval(updateTime, 100)
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </body>
 </html>
