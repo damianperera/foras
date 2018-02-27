@@ -54,7 +54,7 @@
             }
             .container {
                 margin-top: 6.5% !important;
-                margin-bottom: 2.5% !important;
+                margin-bottom: 1.5% !important;
                 height: 85vh !important;
             }
         }
@@ -178,7 +178,7 @@
 
         .under-construction {
             color: red;
-            font-size: 12px;
+            font-size: 11.5px;
             text-transform: uppercase;
         }
         .card {
@@ -186,8 +186,21 @@
             margin-bottom: 2%;
         }
         pre {
-            width: 100% !important;
-            height: 400px !important;
+            width: 115% !important;
+            height: 310px !important;
+            overflow: scroll;
+            /*border: none !important;*/
+        }
+        textarea {
+            height: 310px !important;
+            overflow: scroll;
+        }
+        .btn-group-vertical {
+            text-align: center;
+        }
+        #module-buttons {
+            margin-top: 0.5%;
+            margin-left: 15px;
         }
     </style>
 </head>
@@ -341,27 +354,190 @@
         </div>
     </div>
     <div class="row">
-        <div class="card">
+        <div class="card bg-dark text-white">
             <div class="card-body">
                 <b>Test Cloud Modules</b>
             </div>
         </div>
     </div>
     <div class="row" id="demo">
-        <div class="col">
-            asd
+        <div class="col-sm-5">
+            <div class="js-input">
+                <textarea class="form-control" rows="3" placeholder="JavaScript Code"></textarea>
+            </div>
         </div>
-        <div class="col">
+        <div class="col-sm-1" id="module-buttons">
+            <div class="btn-group-vertical" align="center">
+                <button type="button" class="btn btn-secondary"><i class="fab fa-searchengin"></i></button>
+                <button type="button" class="btn btn-secondary"><i class="fas fa-language"></i></button>
+                <button type="button" class="btn btn-secondary"><i class="fas fa-linter"></i></button>
+                <button type="button" class="btn btn-secondary"><i class="fas fa-magic"></i></button>
+                <button type="button" class="btn btn-secondary disabled"><i class="fas fa-terminal"></i></button>
+                <button type="button" class="btn btn-secondary disabled"><i class="fas fa-code-branch"></i></button>
+                <button type="button" class="btn btn-secondary disabled"><i class="fas fa-exclamation"></i></button>
+                <button type="button" class="btn btn-secondary disabled"><i class="fas fa-file-code"></i></button>
+            </div>
+        </div>
+        <div class="col-sm-5">
             <pre class="prettyprint code-output">
-              &lt;script&gt;
-                $(document).ready(function(){
-                  setTimeout(function(){
-                    console.log('deleting cookie');
-                    $.cookie('cookie',null,{domain: document.domain});
-                  },1000);
-                });
-              &lt;/script&gt;
-            </pre>
+{
+"searchTerm": "math.pow",
+"searchLanguage": "javascript",
+"generatedBy": "foras/modules/codesearch",
+"generatedOn": "2018-02-27T18:15:30.414Z",
+"searchResults": [
+{
+"similarityScore": 5.3154235,
+"codeAuthor": "molarmanful",
+"codeSnippet": "myPow=Math.pow\n"
+},
+{
+"similarityScore": 5.2916718,
+"codeAuthor": "tourniquet",
+"codeSnippet": "const pow = (x, n) => Math.pow(x, n)\n"
+},
+{
+"similarityScore": 5.3240094,
+"codeAuthor": "aureooms",
+"codeSnippet": "\nexports.pow = Math.pow;\n"
+},
+{
+"similarityScore": 5.2913523,
+"codeAuthor": "printfn",
+"codeSnippet": "2 5 ^math'pow\n"
+},
+{
+"similarityScore": 5.2913523,
+"codeAuthor": "printfn",
+"codeSnippet": "> Math.pow(0, 0);\n1\n"
+},
+{
+"similarityScore": 5.2913523,
+"codeAuthor": "printfn",
+"codeSnippet": ":math.pow(0,0)\n"
+},
+{
+"similarityScore": 5.2913523,
+"codeAuthor": "printfn",
+"codeSnippet": "[math]::pow(0,0)\n"
+},
+{
+"similarityScore": 5.2913523,
+"codeAuthor": "printfn",
+"codeSnippet": "[Math]::Pow($a, $b)\n"
+},
+{
+"similarityScore": 5.272148,
+"codeAuthor": "eduarbo",
+"codeSnippet": "math.pow($0)\n"
+},
+{
+"similarityScore": 5.2709,
+"codeAuthor": "motiz88",
+"codeSnippet": "(x,y,) => Math.pow(x,y,)"
+},
+{
+"similarityScore": 5.457123,
+"codeAuthor": "project-draco-hr",
+"codeSnippet": "{\n  return (Math.pow(x - 0.5,2) + Math.pow(y - 0.5,2)) <= Math.pow(0.5,2);\n}\n"
+},
+{
+"similarityScore": 5.2897763,
+"codeAuthor": "EdwinMoses",
+"codeSnippet": "Math.pow(2, Math.pow(3, 4))\nMath.pow(Math.pow(2, 3), 4)\n"
+},
+{
+"similarityScore": 5.293475,
+"codeAuthor": "zhuangbb",
+"codeSnippet": "Math.pow(2, 2);\n"
+},
+{
+"similarityScore": 5.258442,
+"codeAuthor": "zhishan33",
+"codeSnippet": "Math.pow(2, 2);\n"
+},
+{
+"similarityScore": 5.2462883,
+"codeAuthor": "stefanos1316",
+"codeSnippet": "[Math]::Pow($a, $b)\n"
+},
+{
+"similarityScore": 5.2462883,
+"codeAuthor": "stefanos1316",
+"codeSnippet": "2 5 ^math'pow\n"
+},
+{
+"similarityScore": 5.2462883,
+"codeAuthor": "stefanos1316",
+"codeSnippet": "[math]::pow(0,0)\n"
+},
+{
+"similarityScore": 5.242151,
+"codeAuthor": "rhdunn",
+"codeSnippet": "math:pow ( 2 , 8 )"
+},
+{
+"similarityScore": 5.2462883,
+"codeAuthor": "stefanos1316",
+"codeSnippet": ":math.pow(0,0)\n"
+},
+{
+"similarityScore": 5.2462883,
+"codeAuthor": "stefanos1316",
+"codeSnippet": "> Math.pow(0, 0);\n1\n"
+},
+{
+"similarityScore": 5.2505546,
+"codeAuthor": "cgag",
+"codeSnippet": "[Math]::Pow($a, $b)"
+},
+{
+"similarityScore": 5.242151,
+"codeAuthor": "rhdunn",
+"codeSnippet": "math:pow ( 2, )"
+},
+{
+"similarityScore": 5.2505546,
+"codeAuthor": "cgag",
+"codeSnippet": "[Math]::Pow($a, $b)"
+},
+{
+"similarityScore": 5.2457495,
+"codeAuthor": "stonejiajia",
+"codeSnippet": "math.pow($0)\n"
+},
+{
+"similarityScore": 5.239651,
+"codeAuthor": "aarohijohal",
+"codeSnippet": "math.pow($0)\n"
+},
+{
+"similarityScore": 5.2409687,
+"codeAuthor": "hlissner",
+"codeSnippet": "math.pow($0)\n"
+},
+{
+"similarityScore": 5.23516,
+"codeAuthor": "suppy",
+"codeSnippet": "(Math.pow(a,5)==c)?0:1"
+},
+{
+"similarityScore": 5.2409687,
+"codeAuthor": "amosbird",
+"codeSnippet": "math.pow($0)\n"
+},
+{
+"similarityScore": 5.242151,
+"codeAuthor": "rhdunn",
+"codeSnippet": "math:pow(2,8)"
+},
+{
+"similarityScore": 5.243984,
+"codeAuthor": "danez",
+"codeSnippet": "Math.pow(2, 2);\n"
+}
+]
+}</pre>
         </div>
     </div>
 </div>
