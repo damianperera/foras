@@ -27,46 +27,36 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png"><!-- Major Browsers -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style type="text/css">
-        body {
-            background-color: #e0e0e0;
-        }
-
         @media (min-width: 576px) {
             nav {
                 max-width: 540px;
             }
         }
-
         @media (min-width: 768px) {
             nav {
                 max-width: 720px;
             }
         }
-
         @media (min-width: 992px) {
             nav {
                 max-width: 960px;
             }
-
             .container {
                 margin-top: 5% !important;
                 margin-bottom: 2% !important;
                 height: 86vh !important;
             }
         }
-
         @media (min-width: 1200px) {
             nav {
                 max-width: 1140px;
             }
-
             .container {
                 margin-top: 4%;
                 margin-bottom: 2.5%;
                 height: 87vh;
             }
         }
-
         nav {
             width: 100%;
             padding-right: 15px;
@@ -74,30 +64,25 @@
             margin-right: auto;
             margin-left: auto;
         }
-
         #footer {
             font-size: 12px;
             color: white;
         }
-
         a {
             text-decoration: none !important;
             color: darkkhaki;
         }
-
         a:hover {
             text-decoration: none;
             color: khaki;
         }
-
         .container {
-            overflow: scroll;
-            background-color: #ffffff;
-            -webkit-box-shadow: 0 0 100px 1px rgba(0, 0, 0, 0.3);
-            -moz-box-shadow: 0 0 100px 1px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+            overflow-y: scroll;
         }
 
+        ::-webkit-scrollbar {
+            display: none;
+        }
         .clock {
             float: right;
             height: 2vh;
@@ -110,7 +95,6 @@
             /*background: green;*/
             overflow: hidden;
         }
-
         .clock::before, .clock::after {
             content: '';
             width: 7ch;
@@ -118,15 +102,12 @@
             position: absolute;
             z-index: 2;
         }
-
         .clock::after {
             bottom: 0;
         }
-
         .clock > div {
             display: flex;
         }
-
         .tick {
             line-height: 2vh;
         }
