@@ -483,7 +483,6 @@
     let app = angular.module("foras-demo", []);
     app.controller("modules", function($scope, $http, $httpParamSerializerJQLike) {
         $scope.jsCode = "";
-        $scope.result = "Processed Result";
         $scope.spinner = false;
         $scope.codeSuggester = function () {
             if($scope.jsCode !== "") {
