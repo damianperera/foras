@@ -241,7 +241,7 @@
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="container" ng-app="foras-demo">
     <div class="row">
         <div class="row" id="info-boxes">
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -361,7 +361,7 @@
             </div>
         </div>
     </div>
-    <div class="row" id="demo">
+    <div class="row" id="demo" ng-controller="modules">
         <div class="col-sm-5">
             <div class="js-input">
                 <textarea class="form-control" rows="3" placeholder="JavaScript Code"></textarea>
@@ -369,10 +369,10 @@
         </div>
         <div class="col-sm-1" id="module-buttons">
             <div class="btn-group-vertical" align="center">
-                <button type="button" class="btn btn-secondary"><i class="fab fa-searchengin"></i></button>
-                <button type="button" class="btn btn-secondary"><i class="fas fa-language"></i></button>
-                <button type="button" class="btn btn-secondary"><i class="fas fa-linter"></i></button>
-                <button type="button" class="btn btn-secondary"><i class="fas fa-magic"></i></button>
+                <button type="button" class="btn btn-secondary" ng-click="codeSuggester()"><i class="fab fa-searchengin"></i></button>
+                <button type="button" class="btn btn-secondary" ng-click="syntaxChecker()"><i class="fas fa-language"></i></button>
+                <button type="button" class="btn btn-secondary" ng-click="codeLinter()"><i class="fas fa-linter"></i></button>
+                <button type="button" class="btn btn-secondary" ng-click="autoCorrector()"><i class="fas fa-magic"></i></button>
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-terminal"></i></button>
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-code-branch"></i></button>
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-exclamation"></i></button>
@@ -468,5 +468,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script>
+    let app = angular.module("foras-demo", []);
+    app.controller("modules", function($scope) {
+        $scope.codeSuggester = function () {
+            console.log('codeSuggester')
+        };
+        $scope.syntaxChecker = function () {
+            console.log('syntaxChecker')
+        };
+        $scope.codeLinter = function () {
+            console.log('codeLinter')
+        };
+        $scope.autoCorrector = function () {
+            console.log('autoCorrector')
+        };
+    });
+</script>
 </body>
 </html>
