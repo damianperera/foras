@@ -185,7 +185,7 @@
             width: 100%;
             margin-bottom: 2%;
         }
-        pre {
+        .demo pre {
             width: 115% !important;
             height: 310px !important;
             overflow: scroll;
@@ -211,13 +211,20 @@
             left: 20%;
             margin-top: 10%;
         }
+        .Blink {
+            animation: blinker 1.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+        }
+        @keyframes blinker {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
     </style>
 </head>
 <body>
 <nav class="navbar fixed-top navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
         <h4><span class="badge badge-light">FORAS</span>
-            <small>Monitoring Dashboard</small>
+            <small>Module Demo</small>
         </h4>
     </a>
     <div class="clock">
@@ -256,9 +263,9 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fab fa-searchengin"></i></span>
 
-                    <div class="info-box-content">
+                    <div class="info-box-content"">
                         <span class="info-box-text">Code Suggester</span>
-                        <span class="info-box-number">ACTIVE</span>
+                        <span class="info-box-number"><i class="fa fa-circle text-danger Blink"></i> ACTIVE</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -271,7 +278,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Syntax Checker</span>
-                        <span class="info-box-number">ACTIVE</span>
+                        <span class="info-box-number"><i class="fa fa-circle text-danger Blink"></i> ACTIVE</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -288,7 +295,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Code Linter</span>
-                        <span class="info-box-number">ACTIVE</span>
+                        <span class="info-box-number"><i class="fa fa-circle text-danger Blink"></i> ACTIVE</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -301,7 +308,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Auto Corrector</span>
-                        <span class="info-box-number">ACTIVE</span>
+                        <span class="info-box-number"><i class="fa fa-circle text-danger Blink"></i> ACTIVE</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -377,10 +384,10 @@
         </div>
         <div class="col-sm-1" id="module-buttons">
             <div class="btn-group-vertical" align="center">
-                <button type="button" class="btn btn-secondary" ng-click="codeSuggester()"><i class="fab fa-searchengin"></i></button>
-                <button type="button" class="btn btn-secondary" ng-click="syntaxChecker()"><i class="fas fa-language"></i></button>
-                <button type="button" class="btn btn-secondary" ng-click="codeLinter()"><i class="fas fa-linter"></i></button>
-                <button type="button" class="btn btn-secondary" ng-click="autoCorrector()"><i class="fas fa-magic"></i></button>
+                <button type="button" class="btn btn-secondary" ng-click="codeSuggester()" data-toggle="tooltip" data-placement="left" title="Code Suggester"><i class="fab fa-searchengin"></i></button>
+                <button type="button" class="btn btn-secondary" ng-click="syntaxChecker()" data-toggle="tooltip" data-placement="left" title="Syntax Checker"><i class="fas fa-language"></i></button>
+                <button type="button" class="btn btn-secondary" ng-click="codeLinter()" data-toggle="tooltip" data-placement="left" title="Code Linter"><i class="fas fa-linter"></i></button>
+                <button type="button" class="btn btn-secondary" ng-click="autoCorrector()" data-toggle="tooltip" data-placement="left" title="Auto Corrector"><i class="fas fa-magic"></i></button>
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-terminal"></i></button>
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-code-branch"></i></button>
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-exclamation"></i></button>
@@ -476,6 +483,8 @@
 
     setInterval(updateTime, 100)
 </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -571,6 +580,11 @@
         };
     });
 </script>
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script>
+    // Enable tooltips
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </body>
 </html>
