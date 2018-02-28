@@ -373,6 +373,15 @@
         <div class="card bg-dark text-white">
             <div class="card-body">
                 <b><small>Test Drive the Cloud Modules</small></b>
+                <div class="btn-group" style="float: right; cursor: pointer;">
+                    <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        &#8942;
+                    </span>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" data-toggle="modal" data-target="#survey">Survey Results</a>
+                        <a class="dropdown-item" >Architecture Diagram</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -405,8 +414,17 @@
 <nav id="footer" class="navbar fixed-bottom navbar-dark bg-dark">
     <p class="mb-0">&copy; 2018 Damian Perera | Licensed under the <a target="_blank"
                                                                       href="http://www.apache.org/licenses/LICENSE-2.0">Apache
-        License 2.0</a></p>
+        License 2.0</a></p> <button type="button" class="btn btn-primary"
+</button>
 </nav>
+<!-- Modals -->
+<div class="modal fade" id="survey" tabindex="-1" role="dialog" aria-labelledby="surveyTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 130%; left: -10%;">
+                <img src="assets/images/survey.jpg"/>
+        </div>
+    </div>
+</div>
 <script>
     // 24h clock
     let hoursContainer = document.querySelector('.hours');
