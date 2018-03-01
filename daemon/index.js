@@ -70,8 +70,8 @@ jsonRoutes(app, config.routes);
 /**
  * Setup for Perera Server
  */
-if (os.hostname() === 'server.perera.io')
-    port = 80;
+// if (os.hostname() === 'server.perera.io')
+//     port = 80;
 
 app.listen(port, function () {
     console.log('                 \x1b[31mForas Server\x1b[0m is live on \x1b[31m' + os.hostname() + ':' + port + '\x1b[0m');
