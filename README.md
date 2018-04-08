@@ -1,6 +1,8 @@
 # Foras
 Javascript Code Editor for Mobile
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![NPM](https://cdn.rawgit.com/aleen42/badges/master/src/npm.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/npm.svg) [![NodeJS](https://cdn.rawgit.com/aleen42/badges/master/src/node.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/node.svg) [![IntelliJ IDEA](https://cdn.rawgit.com/aleen42/badges/master/src/idea.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/idea.svg)
+
 ### Copyright Notice
    Copyright 2018 Damian Perera
 
@@ -15,3 +17,4 @@ Javascript Code Editor for Mobile
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
