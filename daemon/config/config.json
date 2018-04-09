@@ -6,7 +6,7 @@
       "token": "bcbc49d53c30f6f5738f648d34c5874fde52df5c",
       "dbCollection": "codesearch"
     },
-    "checksyntax": {
+    "checkSyntax": {
       "dbCollection": "checksyntax"
     }
   },
