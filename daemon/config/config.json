@@ -3,12 +3,23 @@
   "modules": {
     "codeSearch": {
       "url": "https://api.github.com/search/code",
-      "token": "bcbc49d53c30f6f5738f648d34c5874fde52df5c"
+      "token": "bcbc49d53c30f6f5738f648d34c5874fde52df5c",
+      "dbCollection": "codesearch"
+    },
+    "checksyntax": {
+      "dbCollection": "checksyntax"
     }
   },
   "routes": {
     "routesPath": "./api/routes",
     "controllersPath": "./api/controllers",
     "policyPath": "./api/policies"
+  },
+  "mongodb": {
+    "uri": "ds014388.mlab.com",
+    "port": "14388",
+    "username": "foras",
+    "password": "foras",
+    "database": "foras"
   }
 }
