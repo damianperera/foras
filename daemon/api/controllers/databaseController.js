@@ -42,7 +42,7 @@ let createRecord = function (res, collection, callback) {
 }
 
 let createCodeSearchRecord = function (res, callback) {
-  connectedDatabase.collection(collectionCodeSearch).updateOne({"searchterm": res.searchterm}, {$set: res}, {upsert : true}, function(err) {
+  connectedDatabase.collection(collectionCodeSearch).updateOne({"searchTerm": res.searchterm}, {$set: res}, {upsert : true}, function(err) {
     if (!err)
       callback()
     else
@@ -51,7 +51,7 @@ let createCodeSearchRecord = function (res, callback) {
 }
 
 let createCheckSyntaxRecord = function (res, callback) {
-  connectedDatabase.collection(collectionCheckSyntax).updateOne({"checkedcode": res.checkedcode}, {$set: res}, {upsert : true}, function(err) {
+  connectedDatabase.collection(collectionCheckSyntax).updateOne({"checkedCode": res.checkedcode}, {$set: res}, {upsert : true}, function(err) {
     if (!err)
       callback()
     else
