@@ -29,7 +29,10 @@ const
     intercept = require("intercept-stdout"),
     morgan = require('morgan'),
     os = require('os'),
-    helmet = require('helmet');
+    helmet = require('helmet'),
+    MongoClient = require('mongodb').MongoClient,
+    connectionString = "mongodb://" + config.mongodb.username + ":" + config.mongodb.password + "@" + config.mongodb.uri + ":" + config.mongodb.port + "/" + config.mongodb.database,
+    databaseController = require('./api/controllers/databaseController');
 
 let port = process.env.PORT || config.port;
 
@@ -73,7 +76,12 @@ jsonRoutes(app, config.routes);
 // if (os.hostname() === 'server.perera.io')
 //     port = 80;
 
-app.listen(port, function () {
+MongoClient.connect(connectionString, function(err, database) {
+  if(err) throw err
+  databaseController.setDatabase(database);
+  app.listen(port, function () {
     console.log('                 \x1b[31mForas Server\x1b[0m is live on \x1b[31m' + os.hostname() + ':' + port + '\x1b[0m');
     console.log("\n ********************************** LOGS ********************************\n");
+  });
 });
+

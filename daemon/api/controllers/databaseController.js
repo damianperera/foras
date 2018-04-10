@@ -19,16 +19,18 @@
  *
  */
 
-const
-  mongoClient = require('mongodb').MongoClient,
-  mongoServer = require('mongodb').Server,
-  connectionString = "mongodb://" + config.mongodb.username + ":" + config.mongodb.password + "@" + config.mongodb.uri + ":" + config.mongodb.port + "/" + config.mongodb.database;
+let connectedDatabase;
 
 function recordResult (res, callback) {
-  console.log(connectionString);
   callback();
 }
 
+let setDatabase = function (database) {
+  console.log("Connected to " + database.s.options.servers[0].host)
+  connectedDatabase = database
+}
+
 module.exports = {
+  setDatabase: setDatabase,
   recordResult: recordResult
 }
