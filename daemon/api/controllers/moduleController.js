@@ -25,7 +25,7 @@ const databaseController = require('./databaseController');
 
 let getSearchCode = function (req, res) {
     moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
-        databaseController.recordResult(result, function () {
+        databaseController.createRecord(result, config.modules.codeSearch.dbCollection, function () {
           res.send(result);
         })
     });
@@ -33,7 +33,7 @@ let getSearchCode = function (req, res) {
 
 let postCheckSyntax = function (req, res) {
     moduleSyntax.check(req.body.code, req.body.filename, function (result) {
-      databaseController.recordResult(result, function () {
+      databaseController.createRecord(result, config.modules.checkSyntax.dbCollection, function () {
         res.send(result);
       })
     })
@@ -41,7 +41,7 @@ let postCheckSyntax = function (req, res) {
 
 let postLintSyntax = function (req, res) {
     moduleSyntax.lint(req.body.code, req.body.filename, req.body.fix, function (result) {
-      databaseController.recordResult(result, function () {
+      databaseController.createRecord(result, config.modules.lintSyntax.dbCollection,function () {
         res.send(result);
       })
     })

@@ -8,6 +8,9 @@
     },
     "checkSyntax": {
       "dbCollection": "checksyntax"
+    },
+    "lintSyntax": {
+      "dbCollection": "lintsyntax"
     }
   },
   "routes": {

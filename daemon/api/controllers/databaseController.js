@@ -19,18 +19,61 @@
  *
  */
 
+const
+  collectionCodeSearch = config.modules.codeSearch.dbCollection,
+  collectionCheckSyntax = config.modules.checkSyntax.dbCollection,
+  collectionLintSyntax = config.modules.lintSyntax.dbCollection;
 let connectedDatabase;
 
-function recordResult (res, callback) {
-  callback();
+let createRecord = function (res, collection, callback) {
+  switch (collection)  {
+    case collectionCodeSearch:
+      createCodeSearchRecord(res, callback)
+      break;
+    case collectionCheckSyntax:
+      createCheckSyntaxRecord(res, callback)
+      break;
+    case collectionLintSyntax:
+      createLintSyntaxRecord(res, callback)
+      break;
+    default:
+      break;
+  }
+}
+
+let createCodeSearchRecord = function (res, callback) {
+  connectedDatabase.collection(collectionCodeSearch).updateOne({"searchterm": res.searchterm}, {$set: res}, {upsert : true}, function(err) {
+    if (!err)
+      callback()
+    else
+      throw err
+  })
+}
+
+let createCheckSyntaxRecord = function (res, callback) {
+  connectedDatabase.collection(collectionCheckSyntax).updateOne({"checkedcode": res.checkedcode}, {$set: res}, {upsert : true}, function(err) {
+    if (!err)
+      callback()
+    else
+      throw err
+  })
+}
+
+let createLintSyntaxRecord = function (res, callback) {
+  connectedDatabase.collection(collectionLintSyntax).updateOne({"results.source": res.results[0].source}, {$set: res}, {upsert : true}, function(err) {
+    if (!err)
+      callback()
+    else
+      throw err
+  })
 }
 
 let setDatabase = function (database) {
-  console.log("Connected to " + database.s.options.servers[0].host)
-  connectedDatabase = database
+  console.log("                      Connected to \x1b[31m" + database.s.options.servers[0].host + "\x1b[0m")
+  connectedDatabase = database.db(config.mongodb.database)
 }
 
 module.exports = {
   setDatabase: setDatabase,
-  recordResult: recordResult
+  createRecord: createRecord
 }
