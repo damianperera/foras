@@ -44,27 +44,33 @@ let createRecord = function (res, collection, callback) {
 let createCodeSearchRecord = function (res, callback) {
   connectedDatabase.collection(collectionCodeSearch).updateOne({"searchTerm": res.searchterm}, {$set: res}, {upsert : true}, function(err) {
     if (!err)
-      callback()
-    else
-      throw err
+      callback();
+    else {
+      console.log(err);
+      callback();
+    }
   })
 }
 
 let createCheckSyntaxRecord = function (res, callback) {
   connectedDatabase.collection(collectionCheckSyntax).updateOne({"checkedCode": res.checkedcode}, {$set: res}, {upsert : true}, function(err) {
     if (!err)
-      callback()
-    else
-      throw err
+      callback();
+    else {
+      console.log(err);
+      callback();
+    }
   })
 }
 
 let createLintSyntaxRecord = function (res, callback) {
   connectedDatabase.collection(collectionLintSyntax).updateOne({"results.source": res.results[0].source}, {$set: res}, {upsert : true}, function(err) {
     if (!err)
-      callback()
-    else
-      throw err
+      callback();
+    else {
+      console.log(err);
+      callback();
+    }
   })
 }
 
