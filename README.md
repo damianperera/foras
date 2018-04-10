@@ -1,7 +1,7 @@
 # Foras
 Javascript Code Editor for Mobile
 
-[![CircleCI](https://circleci.com/gh/damianperera/foras.svg?style=svg&circle-token=ce6323e7f899b7780287c2b1fd54696611889d72)](https://circleci.com/gh/damianperera/foras) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![NPM](https://cdn.rawgit.com/aleen42/badges/master/src/npm.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/npm.svg) [![NodeJS](https://cdn.rawgit.com/aleen42/badges/master/src/node.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/node.svg) [![IntelliJ IDEA](https://cdn.rawgit.com/aleen42/badges/master/src/idea.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/idea.svg)
+[![CircleCI](https://circleci.com/gh/damianperera/foras.svg?style=shield&circle-token=ce6323e7f899b7780287c2b1fd54696611889d72)](https://circleci.com/gh/damianperera/foras) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![NPM](https://cdn.rawgit.com/aleen42/badges/master/src/npm.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/npm.svg) [![NodeJS](https://cdn.rawgit.com/aleen42/badges/master/src/node.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/node.svg) [![IntelliJ IDEA](https://cdn.rawgit.com/aleen42/badges/master/src/idea.svg)](https://cdn.rawgit.com/aleen42/badges/master/src/idea.svg)
 
 ### Copyright Notice
    Copyright 2018 Damian Perera
