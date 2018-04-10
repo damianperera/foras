@@ -26,7 +26,7 @@ const
 let
     resultJSON = {};
 
-function search(term, language, callback) {
+let search = function (term, language, callback) {
     resultJSON = {
         searchTerm: term,
         searchLanguage: language,
@@ -46,7 +46,7 @@ function search(term, language, callback) {
     });
 }
 
-function getRawText(term, language, items, callback) {
+let getRawText = function (term, language, items, callback) {
     items.forEach(function (item, index) {
         item.html_url = item.html_url.replace('github.com', 'raw.githubusercontent.com');
         item.html_url = item.html_url.replace('/blob', '');
@@ -63,7 +63,7 @@ function getRawText(term, language, items, callback) {
     });
 }
 
-function buildJSON(term, language, score, author, result, index, array, callback) {
+let buildJSON = function (term, language, score, author, result, index, array, callback) {
     resultJSON.searchResults.push({
         similarityScore: score,
         codeAuthor: author,
@@ -73,7 +73,7 @@ function buildJSON(term, language, score, author, result, index, array, callback
         callback(resultJSON);
 }
 
-function addToNeuralNet() {
+let addToNeuralNet = function () {
 
 }
 

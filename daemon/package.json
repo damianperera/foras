@@ -27,6 +27,7 @@
     "helmet": "^3.11.0",
     "intercept-stdout": "^0.1.2",
     "json-routing": "^0.1.4",
+    "mongodb": "^3.0.6",
     "morgan": "^1.9.0",
     "request": "^2.83.0",
     "standard": "^11.0.0",

@@ -22,7 +22,7 @@
 const jsChecker = require('syntax-error');
 const jsLinter = require('standard');
 
-function check(code, fileName, callback) {
+let check = function (code, fileName, callback) {
     let result = jsChecker(code, fileName);
     if (result)
         callback({
@@ -40,7 +40,7 @@ function check(code, fileName, callback) {
         });
 }
 
-function lint(code, filename, fix, callback) {
+let lint = function (code, filename, fix, callback) {
     let result = jsLinter.lintTextSync(code, [{
         filename: filename,
         fix: fix

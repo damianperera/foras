@@ -21,22 +21,29 @@
 
 const moduleCodeSearch = require('../../modules/codesearch/exports');
 const moduleSyntax = require('../../modules/checksyntax/exports');
+const databaseController = require('./databaseController');
 
-function getSearchCode(req, res) {
+let getSearchCode = function (req, res) {
     moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
-        res.send(result);
+        databaseController.recordResult(result, function () {
+          res.send(result);
+        })
     });
 }
 
-function postCheckSyntax(req, res) {
+let postCheckSyntax = function (req, res) {
     moduleSyntax.check(req.body.code, req.body.filename, function (result) {
+      databaseController.recordResult(result, function () {
         res.send(result);
+      })
     })
 }
 
-function postLintSyntax(req, res) {
+let postLintSyntax = function (req, res) {
     moduleSyntax.lint(req.body.code, req.body.filename, req.body.fix, function (result) {
+      databaseController.recordResult(result, function () {
         res.send(result);
+      })
     })
 }
 

@@ -21,7 +21,7 @@
 
 let a, b;
 
-function checkSearchParams(req, res, next) {
+let checkSearchParams = function (req, res, next) {
     a = 0;
     b = 0;
 
