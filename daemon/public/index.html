@@ -84,35 +84,6 @@
         ::-webkit-scrollbar {
             display: none;
         }
-        .clock {
-            float: right;
-            height: 2vh;
-            color: #ffffff;
-            font-size: 1.5vh;
-            font-family: sans-serif;
-            line-height: 2.4vh;
-            display: flex;
-            position: relative;
-            /*background: green;*/
-            overflow: hidden;
-        }
-        .clock::before, .clock::after {
-            content: '';
-            width: 7ch;
-            height: 3vh;
-            position: absolute;
-            z-index: 2;
-        }
-        .clock::after {
-            bottom: 0;
-        }
-        .clock > div {
-            display: flex;
-        }
-        .tick {
-            line-height: 2vh;
-        }
-
         .info-box {
             display: block;
             min-height: 90px;
@@ -122,19 +93,15 @@
             border-radius: 2px;
             margin-bottom: 15px;
         }
-
         .bg-green {
             background-color: limegreen !important;
         }
-
         .bg-red {
             background-color: indianred !important;
         }
-
         .bg-red, .bg-green {
             color: #fff !important;
         }
-
         .info-box-icon {
             border-radius: 2px 0 0 2px;
             display: block;
@@ -146,16 +113,13 @@
             line-height: 90px;
             background: rgba(0, 0, 0, 0.2);
         }
-
         .info-box-content {
             padding: 5px 10px;
             margin-left: 90px;
         }
-
         .info-box-text {
             text-transform: uppercase;
         }
-
         .info-box-text {
             display: block;
             font-size: 14px;
@@ -163,19 +127,16 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
         .info-box-number {
             display: block;
             font-weight: bold;
             font-size: 14px;
         }
-
         #info-boxes {
             min-height: 250px;
             margin-right: auto;
             margin-left: auto;
         }
-
         .under-construction {
             color: red;
             font-size: 11.5px;
@@ -211,12 +172,8 @@
             left: 20%;
             margin-top: 10%;
         }
-        .Blink {
-            animation: blinker 1.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;
-        }
-        @keyframes blinker {
-            from { opacity: 1; }
-            to { opacity: 0; }
+        .status {
+            float: right;
         }
     </style>
 </head>
@@ -227,36 +184,8 @@
             <small>Cloud Daemon</small>
         </h4>
     </a>
-    <div class="clock">
-        <div class="hours">
-            <div class="first">
-                <div class="number">0</div>
-            </div>
-            <div class="second">
-                <div class="number">0</div>
-            </div>
-        </div>
-        <div class="tick">:</div>
-        <div class="minutes">
-            <div class="first">
-                <div class="number">0</div>
-            </div>
-            <div class="second">
-                <div class="number">0</div>
-            </div>
-        </div>
-        <div class="tick">:</div>
-        <div class="seconds">
-            <div class="first">
-                <div class="number">0</div>
-            </div>
-            <div class="second infinite">
-                <div class="number">0</div>
-            </div>
-        </div>
-        <div class="status">
-            &nbsp;<img src="https://circleci.com/gh/damianperera/foras.svg?style=shield&circle-token=ce6323e7f899b7780287c2b1fd54696611889d72">
-        </div>
+    <div class="status">
+        <img src="https://circleci.com/gh/damianperera/foras.svg?style=shield&circle-token=ce6323e7f899b7780287c2b1fd54696611889d72">
     </div>
 </nav>
 <div class="container" ng-app="foras-demo">
