@@ -39,10 +39,16 @@ let search = function (term, language, callback) {
         qs: {q: term, in: 'file', language: language, fork: true, archived: true},
         headers: {'Authorization': 'token ' + apiToken, 'User-Agent': userAgent}
     }, function (err, res, body) {
-        if (!err)
+        console.log("Total Count: " + JSON.parse(body).total_count)
+        if (!err && JSON.parse(body).total_count > 0) {
             getRawText(term, language, JSON.parse(body).items, callback);
-        else
-            console.log(err);
+        } else if (err) {
+            resultJSON.searchResults.push({'error': err.toString()});
+            callback(resultJSON)
+        } else if (JSON.parse(body).total_count === 0) {
+            resultJSON.searchResults.push({error: 'no results found'});
+            callback(resultJSON)
+        }
     });
 }
 
