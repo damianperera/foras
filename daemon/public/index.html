@@ -385,7 +385,7 @@
         $scope.spinner = false;
         $scope.codeSuggester = function () {
             if($scope.jsCode !== "") {
-                $scope.spinner = true;
+              $scope.spinner = true;
                 $http({
                     method : "GET",
                     url : "/search/code/javascript/" + encodeURIComponent($scope.jsCode)

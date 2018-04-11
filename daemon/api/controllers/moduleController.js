@@ -24,6 +24,7 @@ const moduleSyntax = require('../../modules/checksyntax/exports');
 const databaseController = require('./databaseController');
 
 let getSearchCode = function (req, res) {
+  console.log(req.params.term);
     moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
         databaseController.createRecord(result, config.modules.codeSearch.dbCollection, function () {
           res.send(result);
