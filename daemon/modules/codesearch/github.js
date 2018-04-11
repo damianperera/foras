@@ -40,14 +40,20 @@ let search = function (term, language, callback) {
         headers: {'Authorization': 'token ' + apiToken, 'User-Agent': userAgent}
     }, function (err, res, body) {
         console.log("Total Count: " + JSON.parse(body).total_count)
-        if (!err && JSON.parse(body).total_count > 0) {
-            getRawText(term, language, JSON.parse(body).items, callback);
+        if (JSON.parse(body).errors) {
+            delete resultJSON.searchResults;
+            resultJSON['errors'] = JSON.parse(body).errors;
+            callback(resultJSON);
         } else if (err) {
-            resultJSON.searchResults.push({'error': err.toString()});
+            delete resultJSON.searchResults;
+            resultJSON['errors'] = JSON.parse(body).errors;
             callback(resultJSON)
         } else if (JSON.parse(body).total_count === 0) {
-            resultJSON.searchResults.push({error: 'no results found'});
+            delete resultJSON.searchResults;
+            resultJSON['errors'] = JSON.parse(body).errors;
             callback(resultJSON)
+        } else {
+          getRawText(term, language, JSON.parse(body).items, callback);
         }
     });
 }
