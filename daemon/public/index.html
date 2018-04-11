@@ -161,7 +161,7 @@
             text-align: center;
         }
         #module-buttons {
-            margin-top: 0.5%;
+            margin-top: 4%;
             margin-left: 15px;
         }
         .btn:focus,.btn:active {
@@ -171,6 +171,16 @@
         #spinner {
             left: 20%;
             margin-top: 10%;
+        }
+        .status {
+            float: right;
+        }
+        .Blink {
+            animation: blinker 1.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+        }
+        @keyframes blinker {
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
         .status {
             float: right;
@@ -218,7 +228,6 @@
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
-
             <!-- fix for small devices only -->
             <div class="clearfix visible-sm-block"></div>
 
@@ -242,6 +251,32 @@
                     <div class="info-box-content">
                         <span class="info-box-text">Auto Corrector</span>
                         <span class="info-box-number"><i class="fa fa-circle text-success Blink"></i> ACTIVE</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-server"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">REST API</span>
+                        <span class="info-box-number"><i class="fa fa-circle text-success Blink"></i> ACTIVE</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-globe"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Smart Suggestor</span>
+                        <span class="info-box-number under-construction">Under Construction</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -274,32 +309,7 @@
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-red"><i class="fas fa-globe"></i></span>
 
-                    <div class="info-box-content">
-                        <span class="info-box-text">Smart Suggestions</span>
-                        <span class="info-box-number under-construction">Under Construction</span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-red"><i class="fas fa-mobile-alt"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Mobile Application</span>
-                        <span class="info-box-number under-construction">Future Enhancement</span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
         </div>
     </div>
     <div class="row">
@@ -333,8 +343,6 @@
                 <button type="button" class="btn btn-secondary" ng-click="autoCorrector()" data-toggle="tooltip" data-placement="left" title="Auto Corrector"><i class="fas fa-magic"></i></button>
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-terminal"></i></button>
                 <button type="button" class="btn btn-secondary disabled"><i class="fas fa-code-branch"></i></button>
-                <button type="button" class="btn btn-secondary disabled"><i class="fas fa-globe"></i></button>
-                <button type="button" class="btn btn-secondary disabled"><i class="fas fa-mobile-alt"></i></button>
             </div>
         </div>
         <div id="spinner" class="col-sm-5" ng-if="spinner == true">
