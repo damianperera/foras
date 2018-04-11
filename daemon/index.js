@@ -66,6 +66,11 @@ app.use(function (req, res, next) {
 app.use("/", express.static(__dirname + '/public'));
 
 /**
+ * Setting up Morgan for logging
+ */
+app.use(morgan('short'))
+
+/**
  * Execute routing
  */
 jsonRoutes(app, config.routes);
