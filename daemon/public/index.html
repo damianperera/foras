@@ -388,7 +388,7 @@
                 $scope.spinner = true;
                 $http({
                     method : "GET",
-                    url : "/search/code/javascript/" + $scope.jsCode
+                    url : "/search/code/javascript/" + encodeURIComponent($scope.jsCode)
                 }).then(
                     function success(response) {
                         $scope.spinner = false;
