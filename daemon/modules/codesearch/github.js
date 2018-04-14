@@ -36,10 +36,9 @@ let search = function (term, language, callback) {
     };
     request({
         url: apiUrl, method: 'GET',
-        qs: {q: term, in: 'file', language: language, fork: true, archived: true},
+        qs: {q: term + '+' + 'language:' + language, fork: true, archived: true},
         headers: {'Authorization': 'token ' + apiToken, 'User-Agent': userAgent}
     }, function (err, res, body) {
-        console.log("Total Count: " + JSON.parse(body).total_count)
         if (JSON.parse(body).errors) {
             delete resultJSON.searchResults;
             resultJSON['errors'] = JSON.parse(body).errors;
