@@ -19,9 +19,11 @@
  *
  */
 
-const moduleCodeSearch = require('../../modules/codesearch/exports');
-const moduleSyntax = require('../../modules/checksyntax/exports');
-const databaseController = require('./databaseController');
+const
+  moduleCodeSearch = require('../../modules/codesearch/exports'),
+  moduleSyntax = require('../../modules/checksyntax/exports'),
+  moduleYoda = require('../../modules/yoda/exports'),
+  databaseController = require('./databaseController');
 
 let getSearchCode = function (req, res) {
     moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
@@ -47,8 +49,15 @@ let postLintSyntax = function (req, res) {
     })
 }
 
+let postYodaCheck = function (req, res) {
+  moduleYoda.withYouMayTheForceBe(req.body.sourceCode, function (result) {
+    res.send(result);
+  })
+}
+
 module.exports = {
     getSearchCode: getSearchCode,
     postCheckSyntax: postCheckSyntax,
-    postLintSyntax: postLintSyntax
+    postLintSyntax: postLintSyntax,
+    postYodaCheck: postYodaCheck
 };

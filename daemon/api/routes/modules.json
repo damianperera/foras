@@ -19,5 +19,11 @@
       "route": "moduleController:postLintSyntax",
       "cors": true
     }
+  },
+  "/yoda/check": {
+    "POST": {
+      "route": "moduleController:postYodaCheck",
+      "cors": true
+    }
   }
 }

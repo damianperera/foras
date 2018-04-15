@@ -27,8 +27,10 @@
     "helmet": "^3.11.0",
     "intercept-stdout": "^0.1.2",
     "json-routing": "^0.1.4",
+    "language-classifier": "0.0.1",
     "mongodb": "^3.0.6",
     "morgan": "^1.9.0",
+    "npm": "^5.8.0",
     "request": "^2.83.0",
     "standard": "^11.0.0",
     "syntax-error": "^1.4.0"

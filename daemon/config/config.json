@@ -4,13 +4,16 @@
     "codeSearch": {
       "url": "https://api.github.com/search/code",
       "token": "bcbc49d53c30f6f5738f648d34c5874fde52df5c",
-      "dbCollection": "codesearch"
+      "dbCollection": "codesearch",
+      "keyword": "searchTerm"
     },
     "checkSyntax": {
-      "dbCollection": "checksyntax"
+      "dbCollection": "checksyntax",
+      "keyword": "checkedCode"
     },
     "lintSyntax": {
-      "dbCollection": "lintsyntax"
+      "dbCollection": "lintsyntax",
+      "keyword": "results.source"
     }
   },
   "routes": {

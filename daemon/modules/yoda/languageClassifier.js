@@ -14,7 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * neuralnetwork.js in foras
- * Created by Damian Perera on 2/20/2018
+ * languageclassifier.js in foras
+ * Created by Damian Perera on 4/15/2018
  *
  */
+
+const classifier = require('language-classifier');
+
+let getLanguage = function (text) {
+  return classifier(text);
+}
+
+module.exports = {
+  getLanguage: getLanguage
+}
