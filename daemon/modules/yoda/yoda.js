@@ -22,46 +22,43 @@
 const
   languageClassifier = require('./languageClassifier'),
   userAgent = 'foras/modules/yoda',
-  errorMessage = 'Patience you must have, my young Padwan',
   databaseController = require('../../api/controllers/databaseController'),
   collectionCodeSearch = config.modules.codeSearch.dbCollection,
   collectionCheckSyntax = config.modules.checkSyntax.dbCollection,
   collectionLintSyntax = config.modules.lintSyntax.dbCollection;
 
-let resultJSON, result = {};
-
-let checkAllText = function (text, callback) {
-  intializeResult(text, () => doLanguageClassification(() => doCodeSearch(() => doSyntaxCheck(() => sendResult(callback)))));
-}
-
-let intializeResult = function (source, callback) {
-  resultJSON = {
-    sourceCode: source,
-    detectedLanguage: 'n/a',
-    generatedBy: userAgent,
-    generatedOn: new Date().toJSON(),
-    suggestions: []
-  };
-  callback();
-}
-
-let doLanguageClassification = function (callback) {
-  resultJSON.detectedLanguage = languageClassifier.getLanguage(resultJSON.sourceCode);
-  callback();
-}
-
-let doCodeSearch = function (callback) {
-  resultJSON.autoComplete = databaseController.searchRecord()
-  callback();
-}
-
-let doSyntaxCheck = function (callback) {
-  callback();
-}
-
-let sendResult = function (callback) {
-  callback(resultJSON);
-}
+let
+  resultJSON,
+  result = {},
+  checkAllText = function (text, callback) {
+    intializeResult(text, () => doLanguageClassification(() => doCodeSearch(() => doSyntaxCheck(() => sendResult(callback)))));
+  },
+  intializeResult = function (source, callback) {
+    resultJSON = {
+      sourceCode: source,
+      detectedLanguage: 'n/a',
+      generatedBy: userAgent,
+      generatedOn: new Date().toJSON(),
+      suggestions: []
+    };
+    callback();
+  },
+  doLanguageClassification = function (callback) {
+    resultJSON.detectedLanguage = languageClassifier.getLanguage(resultJSON.sourceCode);
+    callback();
+  },
+  doCodeSearch = function (callback) {
+    databaseController.searchRecord(config.modules.codeSearch.keyword, resultJSON.sourceCode, collectionCodeSearch, function (result) {
+      resultJSON.autoComplete = result[0].searchResults[0];
+      callback();
+    })
+  },
+  doSyntaxCheck = function (callback) {
+    callback();
+  },
+  sendResult = function (callback) {
+    callback(resultJSON);
+  }
 
 module.exports = {
   guideYouMayTheLight: checkAllText

@@ -19,40 +19,41 @@
  *
  */
 
-const jsChecker = require('syntax-error');
-const jsLinter = require('standard');
+const
+  jsChecker = require('syntax-error'),
+  jsLinter = require('standard');
 
-let check = function (code, fileName, callback) {
-    let result = jsChecker(code, fileName);
-    if (result)
-        callback({
-            'checkedBy': 'foras/modules/checksyntax',
-            'checkedOn': new Date().toJSON(),
-            'result': result,
-            'checkedCode': code
-        });
-    else
-        callback({
-            'checkedBy': 'foras/modules/checksyntax',
-            'checkedOn': new Date().toJSON(),
-            'result': 'correct',
-            'checkedCode': code
-        });
-}
-
-let lint = function (code, filename, fix, callback) {
-    let result = jsLinter.lintTextSync(code, [{
-        filename: filename,
-        fix: fix
-    }]);
-    let lintedResult = {
-        'lintedBy': 'foras/modules/lintsyntax',
-        'lintedOn': new Date().toJSON()
-    };
-    for (let key in result)
-        lintedResult[key] = result[key];
-    callback(lintedResult);
-}
+let
+  check = function (code, fileName, callback) {
+        let result = jsChecker(code, fileName);
+        if (result)
+            callback({
+                'checkedBy': 'foras/modules/checksyntax',
+                'checkedOn': new Date().toJSON(),
+                'result': result,
+                'checkedCode': code
+            });
+        else
+            callback({
+                'checkedBy': 'foras/modules/checksyntax',
+                'checkedOn': new Date().toJSON(),
+                'result': 'correct',
+                'checkedCode': code
+            });
+    },
+  lint = function (code, filename, fix, callback) {
+        let result = jsLinter.lintTextSync(code, [{
+            filename: filename,
+            fix: fix
+        }]);
+        let lintedResult = {
+            'lintedBy': 'foras/modules/lintsyntax',
+            'lintedOn': new Date().toJSON()
+        };
+        for (let key in result)
+            lintedResult[key] = result[key];
+        callback(lintedResult);
+    }
 
 module.exports = {
     check: check,

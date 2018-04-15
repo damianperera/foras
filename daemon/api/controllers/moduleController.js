@@ -25,35 +25,33 @@ const
   moduleYoda = require('../../modules/yoda/exports'),
   databaseController = require('./databaseController');
 
-let getSearchCode = function (req, res) {
+let
+  getSearchCode = function (req, res) {
     moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
         databaseController.createRecord(result, config.modules.codeSearch.dbCollection, function () {
           res.send(result);
         })
     });
-}
-
-let postCheckSyntax = function (req, res) {
+  },
+  postCheckSyntax = function (req, res) {
     moduleSyntax.check(req.body.code, req.body.filename, function (result) {
       databaseController.createRecord(result, config.modules.checkSyntax.dbCollection, function () {
         res.send(result);
       })
     })
-}
-
-let postLintSyntax = function (req, res) {
+  },
+  postLintSyntax = function (req, res) {
     moduleSyntax.lint(req.body.code, req.body.filename, req.body.fix, function (result) {
       databaseController.createRecord(result, config.modules.lintSyntax.dbCollection,function () {
         res.send(result);
       })
     })
-}
-
-let postYodaCheck = function (req, res) {
-  moduleYoda.withYouMayTheForceBe(req.body.sourceCode, function (result) {
-    res.send(result);
-  })
-}
+  },
+  postYodaCheck = function (req, res) {
+    moduleYoda.withYouMayTheForceBe(req.body.sourceCode, function (result) {
+      res.send(result);
+    })
+  }
 
 module.exports = {
     getSearchCode: getSearchCode,
