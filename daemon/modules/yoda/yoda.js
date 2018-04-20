@@ -49,8 +49,14 @@ let
   },
   doCodeSearch = function (callback) {
     databaseController.searchRecord(config.modules.codeSearch.keyword, resultJSON.sourceCode, collectionCodeSearch, function (result) {
-      resultJSON.autoComplete = result[0].searchResults[0];
-      callback();
+      if (result) {
+        resultJSON.autoComplete = result[0].searchResults[0];
+        callback();
+      } else {
+        resultJSON.autoComplete = "not found"
+        callback();
+      }
+
     })
   },
   doSyntaxCheck = function (callback) {

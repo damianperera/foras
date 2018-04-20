@@ -34,11 +34,10 @@ let
     query = {};
     query[searchKey] = term
     connectedDatabase.collection(collection).find(query, {limit: 1}).toArray(function (err, result) {
-      if (!err)
+      if (!err && result.length !== 0)
         callback(result);
       else {
-        console.log(err);
-        callback();
+        callback(false);
       }
     })
   },
