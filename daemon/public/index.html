@@ -362,17 +362,27 @@
 <div class="modal fade" id="survey" tabindex="-1" role="dialog" aria-labelledby="surveyTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="width: 130%; left: -10%;">
-                <img src="assets/images/survey.jpg"/>
+                <img data-src="assets/images/survey.jpg"/>
         </div>
     </div>
 </div>
 <div class="modal fade" id="usecase" tabindex="-1" role="dialog" aria-labelledby="usecaseTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="left: -75%;width: 250%;">
-            <img class="img-responsive" src="assets/images/usecase.png" style="max-height:700px; "/>
+            <img class="img-responsive" data-src="assets/images/usecase.png" style="max-height:700px; "/>
         </div>
     </div>
 </div>
+<script>
+window.addEventListener('load', function(){
+    var allimages= document.getElementsByTagName('img');
+    for (var i=0; i<allimages.length; i++) {
+        if (allimages[i].getAttribute('data-src')) {
+            allimages[i].setAttribute('src', allimages[i].getAttribute('data-src'));
+        }
+    }
+}, false)
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
