@@ -27,12 +27,11 @@ let
     resultJSON = {};
 
 let search = function (term, language, callback) {
-    resultJSON = {
+	resultJSON = {
         searchTerm: term,
         searchLanguage: language,
         generatedBy: userAgent,
         generatedOn: new Date().toJSON(),
-        searchResults: []
     };
     request({
         url: apiUrl, method: 'GET',
@@ -79,6 +78,13 @@ let getRawText = function (term, language, items, callback) {
 }
 
 let buildJSON = function (term, language, score, author, result, index, array, callback) {
+	resultJSON = {
+        searchTerm: term,
+        searchLanguage: language,
+        generatedBy: userAgent,
+        generatedOn: new Date().toJSON(),
+        searchResults: []
+    };
     resultJSON.searchResults.push({
         similarityScore: score,
         codeAuthor: author,
