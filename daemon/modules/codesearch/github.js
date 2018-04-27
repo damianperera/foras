@@ -51,6 +51,10 @@ let search = function (term, language, callback) {
             delete resultJSON.searchResults;
             resultJSON['errors'] = JSON.parse(body).errors;
             callback(resultJSON)
+        } else if (JSON.parse(body).documentation_url === "https://developer.github.com/v3/#abuse-rate-limits") {
+        	delete resultJSON.searchResults;
+        	resultJSON['errors'] = JSON.parse(body).message;
+        	callback(resultJSON)
         } else {
           getRawText(term, language, JSON.parse(body).items, callback);
         }

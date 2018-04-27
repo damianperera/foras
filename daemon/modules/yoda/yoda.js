@@ -31,7 +31,12 @@ let
   resultJSON,
   result = {},
   checkAllText = function (text, callback) {
-    intializeResult(text, () => doLanguageClassification(() => doCodeSearch(() => doSyntaxCheck(() => sendResult(callback)))));
+    intializeResult(text, () =>
+      doLanguageClassification(() =>
+        doCodeSearch(() =>
+          doSyntaxCheck(() =>
+            doSyntaxLint(() =>
+              sendResult(callback))))));
   },
   intializeResult = function (source, callback) {
     resultJSON = {
@@ -64,6 +69,84 @@ let
   },
   sendResult = function (callback) {
     callback(resultJSON);
+  };
+
+let
+  addSuccession = function (language, code, callback) {
+    return this.db.find({language, code}, (err, res) => {
+          if (res.length > 0) {
+            return done();
+          }
+          return this.db.insert({language, code}, err => {
+            return async.series([
+              callback => {
+                return this.engine.similars.update(language, done);
+              },
+              callback => {
+                return this.engine.suggestions.update(language, done);
+              }
+            ], callback);
+          });
+
+      });
+  },
+  removeSuccession = function (language, code, callback) {
+      return this.db.delete({language, code}, err => {
+        return async.series([
+          callback => {
+            return this.engine.similars.update(language, done);
+          },
+          callback => {
+            return this.engine.suggestions.update(language, done);
+          }
+        ], callback);
+      });
+  };
+
+let
+  predictScore = function (language, callback) {
+    async.auto({
+        isInLanguage: callback => {
+          return this.engine.successions.codeByLanguage(language, callback);
+        },
+        notInLanguage: callback => {
+          return this.engine.nonSuccessions.codeByLanguage(language, callback);
+        }
+      },
+      (err, {isInLanguage, notInLanguage}) => {
+        let items;
+        return items = _.flatten([isInLanguage, notInLanguage]);
+      });
+  },
+  computeSimilarityIndex = function (callback) {
+    async.map(others, (other, done) => {
+        return async.auto({
+            otherSuccessions: done => {
+              return this.engine.successions.codeByLanguage(other, done);
+            },
+            otherNonSuccessions: done => {
+              return this.engine.nonSuccessions.codeByLanguage(other, done);
+            }
+          },
+          (err, {otherSuccessions, otherNonSuccessions}) => {
+            return done(null, {
+                user: other,
+                similarity: ((_.intersection(languageSuccession, otherSuccession).length
+                  + _.intersection(languageNonSuccession, otherNonSuccession).length)
+                  - _.intersection(otherSuccession, otherNonSuccession).length
+                  - _.intersection(languageNonSuccession, otherSuccession).length)
+                  / _.union(languageSuccession, otherSuccession, languageNonSuccession, otherNonSuccession).length
+              }
+            );
+          });
+      },
+      (err, others) => {
+        return this.db.insert({
+            user,
+            others
+          }
+          , done);
+      });
   }
 
 module.exports = {
