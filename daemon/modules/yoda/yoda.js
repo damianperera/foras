@@ -67,6 +67,9 @@ let
   doSyntaxCheck = function (callback) {
     callback();
   },
+  doSyntaxLint = function (callback) {
+    callback();
+  },
   sendResult = function (callback) {
     callback(resultJSON);
   };
