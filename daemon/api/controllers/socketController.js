@@ -18,4 +18,17 @@
  * Created by Damian Perera on 4/15/2018
  *
  */
+const moduleYoda = require('../../modules/yoda/exports');
 
+let receive = function (socket) {
+  socket.on('yoda', function (req) {
+    moduleYoda.withYouMayTheForceBe(req, function (result) {
+      socket.emit('yoda', result);
+    })
+
+  });
+}
+
+module.exports = {
+  receive: receive
+}

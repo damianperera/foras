@@ -24,6 +24,8 @@ global.config = require('./config/config');
 const
     express = require('express'),
     app = express(),
+    server = require('http').createServer(app)
+    io = require('socket.io')(server),
     jsonRoutes = require('json-routing'),
     bodyParser = require('body-parser'),
     intercept = require("intercept-stdout"),
@@ -32,7 +34,8 @@ const
     helmet = require('helmet'),
     MongoClient = require('mongodb').MongoClient,
     connectionString = "mongodb://" + config.mongodb.username + ":" + config.mongodb.password + "@" + config.mongodb.uri + ":" + config.mongodb.port + "/" + config.mongodb.database,
-    databaseController = require('./api/controllers/databaseController');
+    databaseController = require('./api/controllers/databaseController'),
+    socketController = require('./api/controllers/socketController');
 
 let port = process.env.PORT || config.port;
 
@@ -81,12 +84,18 @@ jsonRoutes(app, config.routes);
 // if (os.hostname() === 'server.perera.io')
 //     port = 80;
 
+/**
+ * Socket IO
+ */
+io.on("connection", socketController.receive)
+
 MongoClient.connect(connectionString, function(err, database) {
   if(err) throw err
   databaseController.setDatabase(database);
-  app.listen(port, function () {
+  server.listen(port, function () {
     console.log('                 \x1b[31mForas Server\x1b[0m is live on \x1b[31m' + os.hostname() + ':' + port + '\x1b[0m');
     console.log("\n ********************************** LOGS ********************************\n");
   });
 });
+
 
