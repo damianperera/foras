@@ -388,11 +388,42 @@ window.addEventListener('load', function(){
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script>
     let app = angular.module("foras-demo", []);
-    app.controller("modules", function($scope, $http, $httpParamSerializerJQLike) {
+    app.factory('socket', function ($rootScope) {
+      let socket = io.connect();
+      return {
+        on: function (eventName, callback) {
+          socket.on(eventName, function () {
+            let args = arguments;
+            $rootScope.$apply(function () {
+              callback.apply(socket, args);
+            });
+          });
+        },
+        emit: function (eventName, data, callback) {
+          socket.emit(eventName, data, function () {
+            let args = arguments;
+            $rootScope.$apply(function () {
+              if (callback) {
+                callback.apply(socket, args);
+              }
+            });
+          })
+        }
+      };
+    });
+    app.controller("modules", function($scope, $http, $httpParamSerializerJQLike, socket) {
         $scope.jsCode = "";
         $scope.spinner = false;
+
+        socket.on('yoda', function (data) {
+          console.log(data);
+        });
+
+        socket.emit('yoda', 'console.log');
+
         $scope.codeSuggester = function () {
             if($scope.jsCode !== "") {
               $scope.spinner = true;
