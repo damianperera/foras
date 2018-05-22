@@ -28,12 +28,14 @@ const
 let
   getSearchCode = function (req, res) {
     moduleCodeSearch.search(req.params.term, req.params.language, function (result) {
+      console.log(result);
         databaseController.createRecord(result, config.modules.codeSearch.dbCollection, function () {
           res.send(result);
         })
     });
   },
   postSearchCode = function (req, res) {
+   console.log("processing...");
     moduleCodeSearch.search(req.body.term, req.body.language, function (result) {
       databaseController.createRecord(result, config.modules.codeSearch.dbCollection, function () {
         res.send(result);

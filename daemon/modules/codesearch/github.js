@@ -38,6 +38,7 @@ let search = function (term, language, callback) {
         qs: {q: term + '+' + 'language:' + language, fork: true, archived: true},
         headers: {'Authorization': 'token ' + apiToken, 'User-Agent': userAgent}
     }, function (err, res, body) {
+        // console.log(err, res, body);
         if (JSON.parse(body).errors) {
             delete resultJSON.searchResults;
             resultJSON['errors'] = JSON.parse(body).errors;
@@ -78,13 +79,15 @@ let getRawText = function (term, language, items, callback) {
 }
 
 let buildJSON = function (term, language, score, author, result, index, array, callback) {
-	resultJSON = {
-        searchTerm: term,
-        searchLanguage: language,
-        generatedBy: userAgent,
-        generatedOn: new Date().toJSON(),
-        searchResults: []
-    };
+	  if (!("searchResults" in resultJSON) || resultJSON.searchResults.length === 0) {
+	      resultJSON = {
+            searchTerm: term,
+            searchLanguage: language,
+            generatedBy: userAgent,
+            generatedOn: new Date().toJSON(),
+            searchResults: []
+        };
+    }
     resultJSON.searchResults.push({
         similarityScore: score,
         codeAuthor: author,
