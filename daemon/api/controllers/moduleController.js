@@ -33,6 +33,13 @@ let
         })
     });
   },
+  postSearchCode = function (req, res) {
+    moduleCodeSearch.search(req.body.term, req.body.language, function (result) {
+      databaseController.createRecord(result, config.modules.codeSearch.dbCollection, function () {
+        res.send(result);
+      })
+    });
+  },
   postCheckSyntax = function (req, res) {
     moduleSyntax.check(req.body.code, req.body.filename, function (result) {
       databaseController.createRecord(result, config.modules.checkSyntax.dbCollection, function () {
@@ -55,6 +62,7 @@ let
 
 module.exports = {
     getSearchCode: getSearchCode,
+    postSearchCode: postSearchCode,
     postCheckSyntax: postCheckSyntax,
     postLintSyntax: postLintSyntax,
     postYodaCheck: postYodaCheck

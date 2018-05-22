@@ -6,6 +6,13 @@
         "firewall:checkSearchParams"
       ],
       "cors": true
+    },
+    "POST": {
+      "route": "moduleController:postSearchCode",
+      "policy": [
+        "firewall:checkSearchPOSTParams"
+      ],
+      "cors": true
     }
   },
   "/syntax/check": {

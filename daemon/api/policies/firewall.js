@@ -38,6 +38,24 @@ let checkSearchParams = function (req, res, next) {
     }
 }
 
+let checkSearchPOSTParams = function (req, res, next) {
+  a = 0;
+  b = 0;
+
+  a += (req.body.language && req.body.language != null) ? 1 : 0;
+  b += 1;
+  a += (req.body.term && req.body.term != null) ? 1 : 0;
+  b += 1;
+
+  if (a === b) {
+    next()
+  } else {
+    console.log("\x1b[31mFIREWALL:\x1b[0m request from " + getIPAddress(req) + " was rejected because proper parameters could not be found");
+    res.status(400).send(JSON.parse('{"code": 401, "reason":"Invalid search parameters"}'));
+  }
+}
+
 module.exports = {
-    checkSearchParams: checkSearchParams
+    checkSearchParams: checkSearchParams,
+    checkSearchPOSTParams: checkSearchPOSTParams
 };
