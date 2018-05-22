@@ -19,14 +19,18 @@
  *
  */
 const moduleYoda = require('../../modules/yoda/exports');
+let connectedClients = [];
 
 let receive = function (socket) {
+  connectedClients.push(socket);
   socket.on('yoda', function (req) {
     moduleYoda.withYouMayTheForceBe(req, function (result) {
       socket.emit('yoda', result);
     })
-
   });
+  socket.on('disconnect', function () {
+    connectedClients.splice(connectedClients.indexOf(socket), 1)
+  })
 }
 
 module.exports = {
