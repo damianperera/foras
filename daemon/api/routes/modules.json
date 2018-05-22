@@ -6,7 +6,9 @@
         "firewall:checkSearchParams"
       ],
       "cors": true
-    },
+    }
+  },
+  "/search/code": {
     "POST": {
       "route": "moduleController:postSearchCode",
       "policy": [
